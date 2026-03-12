@@ -3,1484 +3,1280 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIA Philippines – Infinite Wealth Financials</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Infinite Wealth Financials – AIA Philippines Life Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --red: #C8102E;
-    --red-dark: #9e0c24;
-    --red-light: #f5e6e9;
-    --gold: #C9963A;
-    --gold-light: #f5e6c8;
-    --black: #0d0d0d;
-    --dark: #1a1a1a;
-    --gray: #4a4a4a;
-    --light: #f9f7f4;
-    --white: #ffffff;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--light);
-    color: var(--dark);
-    overflow-x: hidden;
-  }
-
-  /* ANNOUNCEMENT BAR */
-  .announcement {
-    background: var(--red);
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
-
-  /* HEADER */
-  header {
-    background: var(--white);
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 72px;
-    border-bottom: 1px solid #e8e0d6;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-
-  .logo-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--red);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo-icon svg { width: 28px; height: 28px; fill: white; }
-
-  .logo-text {
-    line-height: 1.1;
-  }
-
-  .logo-text .brand {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--red);
-    letter-spacing: -0.3px;
-  }
-
-  .logo-text .sub {
-    font-size: 10px;
-    color: var(--gray);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-
-  nav { display: flex; gap: 32px; }
-  nav a {
-    text-decoration: none;
-    color: var(--gray);
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  nav a:hover { color: var(--red); }
-
-  .header-cta {
-    background: var(--red);
-    color: white;
-    border: none;
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-family: 'DM Sans', sans-serif;
-    text-decoration: none;
-  }
-  .header-cta:hover { background: var(--red-dark); }
-
-  /* BREADCRUMB */
-  .breadcrumb {
-    padding: 14px 60px;
-    font-size: 13px;
-    color: var(--gray);
-    background: white;
-    border-bottom: 1px solid #ede8e0;
-  }
-  .breadcrumb a { color: var(--gray); text-decoration: none; }
-  .breadcrumb a:hover { color: var(--red); }
-  .breadcrumb span { color: var(--red); font-weight: 500; }
-
-  /* PRODUCT HERO */
-  .product-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 50px 60px;
-  }
-
-  /* LEFT: Image Gallery */
-  .gallery {
-    position: sticky;
-    top: 90px;
-    height: fit-content;
-  }
-
-  .main-image {
-    width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1a1a2e 0%, #C8102E 40%, #9e0c24 70%, #2d1b1b 100%);
-    aspect-ratio: 1/1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 40px;
-  }
-
-  .main-image::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  .product-badge-hero {
-    background: var(--gold);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .product-main-icon {
-    width: 120px;
-    height: 120px;
-    background: rgba(255,255,255,0.12);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid rgba(255,255,255,0.2);
-    margin-bottom: 24px;
-    position: relative;
-    z-index: 1;
-    animation: pulse 3s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.15); }
-    50% { box-shadow: 0 0 0 20px rgba(255,255,255,0); }
-  }
-
-  .product-main-icon svg { width: 60px; height: 60px; fill: white; }
-
-  .main-image h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: white;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-
-  .main-image p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .thumbnails {
-    display: flex;
-    gap: 10px;
-    margin-top: 12px;
-  }
-
-  .thumb {
-    flex: 1;
-    aspect-ratio: 1/1;
-    border-radius: 10px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border-color 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-  }
-
-  .thumb:hover, .thumb.active { border-color: var(--red); }
-
-  .thumb:nth-child(1) { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-  .thumb:nth-child(2) { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
-  .thumb:nth-child(3) { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-  .thumb:nth-child(4) { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-
-  /* RIGHT: Product Info */
-  .product-info { padding-top: 10px; }
-
-  .product-vendor {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .product-vendor::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 2px;
-    background: var(--red);
-  }
-
-  .product-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--black);
-    margin-bottom: 6px;
-  }
-
-  .product-subtitle {
-    font-size: 16px;
-    color: var(--gray);
-    margin-bottom: 20px;
-    font-weight: 300;
-    line-height: 1.5;
-  }
-
-  .stars {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 20px;
-  }
-
-  .stars span { color: var(--gold); font-size: 16px; }
-  .stars small { color: var(--gray); font-size: 13px; }
-
-  .price-section {
-    background: var(--red-light);
-    border: 1px solid #f0d0d6;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 24px;
-  }
-
-  .price-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-bottom: 4px; }
-
-  .price {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--red);
-  }
-
-  .price small {
-    font-size: 16px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    color: var(--gray);
-  }
-
-  .price-note { font-size: 12px; color: var(--gray); margin-top: 4px; }
-
-  /* Plan Selector */
-  .section-label {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: var(--dark);
-    margin-bottom: 10px;
-    text-transform: uppercase;
-  }
-
-  .plan-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-
-  .plan-option {
-    border: 2px solid #e0d8cc;
-    border-radius: 10px;
-    padding: 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: white;
-  }
-
-  .plan-option:hover { border-color: var(--red); }
-  .plan-option.selected { border-color: var(--red); background: var(--red-light); }
-
-  .plan-option .plan-name { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
-  .plan-option .plan-price { font-size: 13px; color: var(--gray); }
-  .plan-option .plan-badge {
-    display: inline-block;
-    background: var(--gold);
-    color: white;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 10px;
-    letter-spacing: 0.5px;
-    margin-top: 4px;
-  }
-
-  /* Coverage Amount */
-  .coverage-pills {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
-  }
-
-  .pill {
-    border: 2px solid #e0d8cc;
-    border-radius: 8px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    transition: all 0.2s;
-    background: white;
-  }
-
-  .pill:hover { border-color: var(--red); }
-  .pill.selected { border-color: var(--red); background: var(--red); color: white; }
-
-  /* Quantity */
-  .qty-row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-    align-items: center;
-  }
-
-  .qty-box {
-    display: flex;
-    align-items: center;
-    border: 2px solid #e0d8cc;
-    border-radius: 8px;
-    overflow: hidden;
-    background: white;
-  }
-
-  .qty-box button {
-    background: none;
-    border: none;
-    width: 38px;
-    height: 44px;
-    font-size: 18px;
-    cursor: pointer;
-    color: var(--dark);
-    transition: background 0.15s;
-  }
-  .qty-box button:hover { background: var(--red-light); }
-  .qty-box input {
-    width: 44px;
-    height: 44px;
-    text-align: center;
-    border: none;
-    border-left: 1px solid #e0d8cc;
-    border-right: 1px solid #e0d8cc;
-    font-size: 15px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    outline: none;
-  }
-
-  .add-cart-btn {
-    flex: 1;
-    background: var(--red);
-    color: white;
-    border: none;
-    padding: 0 24px;
-    height: 50px;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    font-family: 'DM Sans', sans-serif;
-    letter-spacing: 0.5px;
-  }
-  .add-cart-btn:hover { background: var(--red-dark); transform: translateY(-1px); }
-  .add-cart-btn:active { transform: translateY(0); }
-
-  .buy-btn {
-    width: 100%;
-    background: var(--black);
-    color: white;
-    border: none;
-    padding: 16px;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-bottom: 20px;
-    transition: background 0.2s;
-    font-family: 'DM Sans', sans-serif;
-    letter-spacing: 0.5px;
-  }
-  .buy-btn:hover { background: #333; }
-
-  .trust-strip {
-    display: flex;
-    gap: 16px;
-    font-size: 12px;
-    color: var(--gray);
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-  }
-
-  .trust-item { display: flex; align-items: center; gap: 5px; }
-  .trust-item svg { width: 14px; height: 14px; fill: var(--gold); }
-
-  /* Key Benefits Box */
-  .benefits-box {
-    border: 1px solid #e0d8cc;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-
-  .benefits-box .box-header {
-    background: var(--dark);
-    color: white;
-    padding: 12px 18px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .benefit-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 18px;
-    border-bottom: 1px solid #f0ebe2;
-    background: white;
-  }
-  .benefit-item:last-child { border-bottom: none; }
-
-  .benefit-icon {
-    width: 32px;
-    height: 32px;
-    background: var(--red-light);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 15px;
-  }
-
-  .benefit-text .btitle { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
-  .benefit-text .bdesc { font-size: 12px; color: var(--gray); line-height: 1.4; }
-
-  /* DESCRIPTION SECTION */
-  .description-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 60px 60px;
-  }
-
-  .section-divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, #e0d8cc, transparent);
-    margin: 40px 0;
-  }
-
-  .desc-tabs {
-    display: flex;
-    gap: 0;
-    border-bottom: 2px solid #e0d8cc;
-    margin-bottom: 32px;
-  }
-
-  .tab-btn {
-    padding: 12px 24px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: var(--gray);
-    font-family: 'DM Sans', sans-serif;
-    position: relative;
-    transition: color 0.2s;
-  }
-
-  .tab-btn.active { color: var(--red); }
-  .tab-btn.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--red);
-  }
-
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
-
-  .desc-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-  }
-
-  .desc-grid p {
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--gray);
-    margin-bottom: 16px;
-  }
-
-  .desc-grid h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--black);
-  }
-
-  .coverage-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-
-  .coverage-table th {
-    background: var(--dark);
-    color: white;
-    padding: 12px 16px;
-    text-align: left;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    font-size: 12px;
-    text-transform: uppercase;
-  }
-
-  .coverage-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #f0ebe2;
-    background: white;
-  }
-
-  .coverage-table tr:last-child td { border-bottom: none; }
-  .coverage-table td:last-child { font-weight: 600; color: var(--red); }
-
-  .checkmark { color: #2ecc71; font-size: 16px; }
-
-  /* WHY AIA SECTION */
-  .why-section {
-    background: var(--dark);
-    padding: 80px 60px;
-    text-align: center;
-  }
-
-  .why-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    color: white;
-    margin-bottom: 12px;
-  }
-
-  .why-section p {
-    color: rgba(255,255,255,0.6);
-    font-size: 16px;
-    margin-bottom: 50px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    max-width: 1000px;
-    margin: 0 auto 50px;
-  }
-
-  .stat-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px;
-    padding: 28px 16px;
-    transition: background 0.2s;
-  }
-
-  .stat-card:hover { background: rgba(200,16,46,0.2); }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--gold);
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  .stat-label { color: rgba(255,255,255,0.7); font-size: 13px; }
-
-  /* PRODUCTS GRID */
-  .products-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px;
-  }
-
-  .products-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    margin-bottom: 8px;
-  }
-
-  .products-section > p { color: var(--gray); margin-bottom: 36px; font-size: 15px; }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  .product-card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #e8e0d6;
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-  }
-
-  .product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  }
-
-  .card-img {
-    height: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-    position: relative;
-  }
-
-  .card-img::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: linear-gradient(to top, white, transparent);
-  }
-
-  .card-body { padding: 20px; }
-
-  .card-tag {
-    display: inline-block;
-    background: var(--red-light);
-    color: var(--red);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 12px;
-    margin-bottom: 8px;
-  }
-
-  .card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-  .card-desc { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; }
-  .card-price { font-weight: 700; color: var(--red); font-size: 15px; margin-bottom: 14px; }
-
-  .card-btn {
-    width: 100%;
-    background: var(--red-light);
-    color: var(--red);
-    border: 1px solid #f0c0cc;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .card-btn:hover { background: var(--red); color: white; }
-
-  /* TESTIMONIALS */
-  .testimonials {
-    background: var(--red-light);
-    padding: 60px;
-  }
-
-  .testimonials h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 36px;
-  }
-
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1080px;
-    margin: 0 auto;
-  }
-
-  .testi-card {
-    background: white;
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: 0 4px 20px rgba(200,16,46,0.08);
-  }
-
-  .testi-stars { color: var(--gold); margin-bottom: 12px; font-size: 14px; }
-  .testi-text { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
-
-  .testi-author { display: flex; align-items: center; gap: 10px; }
-  .testi-avatar {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 15px;
-    color: white;
-    flex-shrink: 0;
-  }
-  .testi-name { font-weight: 600; font-size: 14px; }
-  .testi-loc { font-size: 12px; color: var(--gray); }
-
-  /* FAQ */
-  .faq-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 60px 40px;
-  }
-
-  .faq-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 36px;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid #e0d8cc;
-    overflow: hidden;
-  }
-
-  .faq-q {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 0;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 15px;
-    user-select: none;
-  }
-
-  .faq-q span { transition: transform 0.2s; font-size: 20px; color: var(--red); }
-  .faq-item.open .faq-q span { transform: rotate(45deg); }
-
-  .faq-a {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.7;
-  }
-
-  .faq-item.open .faq-a { max-height: 200px; padding-bottom: 16px; }
-
-  /* FOOTER */
-  footer {
-    background: var(--black);
-    color: rgba(255,255,255,0.6);
-    padding: 60px;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto 40px;
-  }
-
-  .footer-brand .brand-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    color: white;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-
-  .footer-brand p { font-size: 13px; line-height: 1.7; margin-bottom: 20px; }
-
-  .footer-col h4 { color: white; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
-  .footer-col a { display: block; font-size: 13px; margin-bottom: 8px; text-decoration: none; color: rgba(255,255,255,0.55); transition: color 0.2s; }
-  .footer-col a:hover { color: var(--gold); }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .yt-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--red);
-    color: white;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    transition: background 0.2s;
-  }
-  .yt-link:hover { background: var(--red-dark); }
-
-  /* Floating WhatsApp */
-  .floating-wa {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 56px;
-    height: 56px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 16px rgba(37,211,102,0.4);
-    cursor: pointer;
-    z-index: 999;
-    transition: transform 0.2s;
-    text-decoration: none;
-  }
-  .floating-wa:hover { transform: scale(1.1); }
-  .floating-wa svg { width: 28px; height: 28px; fill: white; }
-
-  @media (max-width: 900px) {
-    .product-hero { grid-template-columns: 1fr; padding: 24px; }
-    .gallery { position: static; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .products-grid { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .desc-grid { grid-template-columns: 1fr; }
-    nav { display: none; }
-    .why-section, .products-section, .testimonials, .faq-section { padding: 40px 20px; }
-    .description-section { padding: 20px 24px 40px; }
-    .breadcrumb { padding: 12px 24px; }
-  }
+:root {
+  --red: #C8102E;
+  --red-dark: #9e0c24;
+  --red-light: #fdf0f2;
+  --gold: #C9963A;
+  --gold-light: #fdf5e6;
+  --black: #0d0d0d;
+  --dark: #1a1a1a;
+  --gray: #555;
+  --light-gray: #f0ebe2;
+  --light: #faf8f5;
+  --white: #ffffff;
+  --green: #2ecc71;
+  --blue: #3498db;
+  --purple: #8e44ad;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--light);color:var(--dark);overflow-x:hidden;}
+
+/* ── ANNOUNCE BAR ── */
+.announce-bar{background:var(--red);color:white;text-align:center;padding:9px;font-size:13px;font-weight:500;letter-spacing:.3px;}
+.announce-bar a{color:var(--gold-light);text-decoration:none;font-weight:700;}
+
+/* ── HEADER ── */
+header{background:white;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px;border-bottom:1px solid #e8e0d6;position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(0,0,0,.07);}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-icon{width:42px;height:42px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.logo-icon svg{width:26px;height:26px;fill:white;}
+.logo-brand{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--red);}
+.logo-sub{font-size:10px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;}
+nav{display:flex;gap:28px;}
+nav a{text-decoration:none;color:var(--gray);font-size:13.5px;font-weight:500;transition:color .2s;position:relative;}
+nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform .2s;}
+nav a:hover{color:var(--red);}
+nav a:hover::after{transform:scaleX(1);}
+.nav-cta{background:var(--red);color:white!important;padding:9px 20px;border-radius:7px;font-weight:600!important;}
+.nav-cta::after{display:none!important;}
+.nav-cta:hover{background:var(--red-dark)!important;color:white!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--dark);border-radius:2px;}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#0d0d0d 0%,#1a0508 40%,#2d0810 70%,#0d0d0d 100%);padding:90px 5% 80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C8102E' fill-opacity='0.05'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40z'/%3E%3C/g%3E%3C/svg%3E");opacity:.5;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+.hero-tag{display:inline-block;background:rgba(201,150,58,.15);border:1px solid rgba(201,150,58,.4);color:var(--gold);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:white;line-height:1.05;margin-bottom:20px;}
+.hero h1 span{color:var(--red);}
+.hero-desc{font-size:16px;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:32px;max-width:500px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--red);color:white;border:none;padding:14px 28px;border-radius:9px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,16,46,.35);}
+.btn-secondary{background:transparent;color:white;border:2px solid rgba(255,255,255,.3);padding:14px 28px;border-radius:9px;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;}
+.btn-secondary:hover{border-color:white;background:rgba(255,255,255,.08);}
+.hero-visual{display:flex;flex-direction:column;gap:14px;}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px 24px;display:flex;align-items:center;gap:16px;transition:all .3s;cursor:pointer;}
+.hero-card:hover{background:rgba(200,16,46,.15);border-color:rgba(200,16,46,.4);transform:translateX(6px);}
+.hero-card-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.hero-card-text .label{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.hero-card-text .value{font-size:16px;font-weight:600;color:white;}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px;}
+.hero-stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;text-align:center;}
+.hero-stat .snum{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--gold);display:block;}
+.hero-stat .slabel{font-size:11px;color:rgba(255,255,255,.5);}
+
+/* ── NAV PILLS (page sections) ── */
+.section-nav{background:white;border-bottom:2px solid var(--light-gray);position:sticky;top:70px;z-index:150;overflow-x:auto;}
+.section-nav-inner{display:flex;gap:0;max-width:1200px;margin:0 auto;padding:0 5%;}
+.snav-btn{padding:14px 22px;font-size:13px;font-weight:600;border:none;background:none;color:var(--gray);cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;border-bottom:3px solid transparent;transition:all .2s;}
+.snav-btn:hover{color:var(--red);}
+.snav-btn.active{color:var(--red);border-bottom-color:var(--red);}
+
+/* ── SECTION COMMONS ── */
+.section{max-width:1200px;margin:0 auto;padding:70px 5%;}
+.section-header{margin-bottom:44px;}
+.section-tag{display:inline-block;background:var(--red-light);color:var(--red);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:12px;margin-bottom:10px;}
+.section-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:var(--black);margin-bottom:10px;line-height:1.2;}
+.section-desc{font-size:15px;color:var(--gray);max-width:600px;line-height:1.7;}
+.bg-white{background:white;}
+.bg-light{background:var(--light);}
+.bg-dark{background:var(--dark);}
+.bg-red-light{background:var(--red-light);}
+
+/* ── PRODUCT CARDS ── */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.product-card{background:white;border-radius:18px;overflow:hidden;border:1.5px solid #ede8e0;transition:all .25s;cursor:pointer;display:flex;flex-direction:column;}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 24px 48px rgba(0,0,0,.1);border-color:rgba(200,16,46,.2);}
+.pc-header{padding:28px 24px 20px;position:relative;}
+.pc-icon{font-size:36px;margin-bottom:14px;}
+.pc-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:10px;margin-bottom:10px;}
+.pc-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;margin-bottom:8px;color:var(--black);}
+.pc-desc{font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:16px;}
+.pc-features{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:20px;}
+.pc-features li{font-size:12.5px;color:var(--dark);display:flex;align-items:flex-start;gap:8px;line-height:1.4;}
+.pc-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+.pc-footer{padding:16px 24px 20px;border-top:1px solid var(--light-gray);display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+.pc-price{font-size:13px;color:var(--gray);}
+.pc-price strong{font-size:17px;color:var(--red);font-weight:700;}
+.pc-btn{background:var(--red);color:white;border:none;padding:9px 18px;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;text-decoration:none;white-space:nowrap;}
+.pc-btn:hover{background:var(--red-dark);}
+/* Card color themes */
+.theme-red .pc-tag{background:var(--red-light);color:var(--red);}
+.theme-red .pc-header{background:linear-gradient(135deg,#fff5f7,white);}
+.theme-gold .pc-tag{background:var(--gold-light);color:var(--gold);}
+.theme-gold .pc-header{background:linear-gradient(135deg,#fffbf0,white);}
+.theme-blue .pc-tag{background:#eef5ff;color:#2563eb;}
+.theme-blue .pc-header{background:linear-gradient(135deg,#f0f5ff,white);}
+.theme-green .pc-tag{background:#f0fdf4;color:#16a34a;}
+.theme-green .pc-header{background:linear-gradient(135deg,#f0fff4,white);}
+.theme-purple .pc-tag{background:#faf0ff;color:#7c3aed;}
+.theme-purple .pc-header{background:linear-gradient(135deg,#faf0ff,white);}
+.theme-teal .pc-tag{background:#f0fdfa;color:#0d9488;}
+.theme-teal .pc-header{background:linear-gradient(135deg,#f0fdfa,white);}
+
+/* ── VITALITY SECTION ── */
+.vitality-section{background:linear-gradient(135deg,#0d0d0d,#1a1a1a);padding:80px 5%;}
+.vitality-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+.vitality-text .section-tag{background:rgba(201,150,58,.15);border:1px solid rgba(201,150,58,.3);color:var(--gold);}
+.vitality-text h2{font-family:'Playfair Display',serif;font-size:38px;color:white;margin-bottom:16px;line-height:1.15;}
+.vitality-text p{color:rgba(255,255,255,.6);font-size:15px;line-height:1.8;margin-bottom:24px;}
+.vitality-steps{display:flex;flex-direction:column;gap:14px;}
+.vstep{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 18px;transition:background .2s;}
+.vstep:hover{background:rgba(201,150,58,.12);}
+.vstep-num{width:32px;height:32px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0;}
+.vstep-text strong{display:block;color:white;font-size:14px;margin-bottom:3px;}
+.vstep-text span{font-size:12.5px;color:rgba(255,255,255,.5);}
+.vitality-badges{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.vbadge{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;text-align:center;}
+.vbadge-icon{font-size:32px;margin-bottom:10px;}
+.vbadge strong{display:block;color:white;font-size:14px;margin-bottom:4px;}
+.vbadge span{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;}
+
+/* ── LEARN (Financial Education) ── */
+.learn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.learn-card{background:white;border-radius:16px;padding:28px;border:1.5px solid #ede8e0;transition:all .25s;cursor:pointer;}
+.learn-card:hover{border-color:var(--red);box-shadow:0 12px 32px rgba(200,16,46,.08);transform:translateY(-3px);}
+.lc-icon{font-size:32px;margin-bottom:14px;}
+.lc-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:10px;color:var(--black);}
+.lc-desc{font-size:13.5px;color:var(--gray);line-height:1.7;margin-bottom:16px;}
+.lc-topics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+.lc-topic{background:var(--light-gray);color:var(--dark);font-size:11px;font-weight:600;padding:4px 10px;border-radius:8px;}
+.lc-link{font-size:13px;font-weight:600;color:var(--red);text-decoration:none;display:flex;align-items:center;gap:5px;}
+.lc-link:hover{text-decoration:underline;}
+
+/* ── WHO IS IT FOR ── */
+.persona-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.persona-card{background:white;border-radius:16px;padding:24px 18px;border:1.5px solid #ede8e0;text-align:center;transition:all .25s;cursor:pointer;}
+.persona-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.09);border-color:var(--red);}
+.persona-icon{font-size:44px;margin-bottom:14px;}
+.persona-label{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:8px;}
+.persona-desc{font-size:12.5px;color:var(--gray);line-height:1.6;}
+.persona-tag{display:inline-block;margin-top:12px;background:var(--red-light);color:var(--red);font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;}
+
+/* ── HOW IT WORKS ── */
+.steps-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;}
+.steps-row::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;background:linear-gradient(to right,var(--red-light),var(--red),var(--red-light));z-index:0;}
+.step{text-align:center;padding:0 10px;position:relative;z-index:1;}
+.step-num{width:56px;height:56px;background:white;border:3px solid var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:var(--red);margin:0 auto 16px;box-shadow:0 4px 16px rgba(200,16,46,.15);}
+.step-title{font-weight:700;font-size:14px;margin-bottom:6px;color:var(--black);}
+.step-desc{font-size:12px;color:var(--gray);line-height:1.5;}
+
+/* ── COMPARISON TABLE ── */
+.compare-wrap{overflow-x:auto;}
+.compare-table{width:100%;border-collapse:collapse;font-size:14px;min-width:700px;}
+.compare-table th{padding:14px 18px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+.compare-table th:first-child{text-align:left;}
+.compare-table th.highlight{background:var(--red);color:white;border-radius:8px 8px 0 0;}
+.compare-table th.col-head{background:var(--dark);color:white;}
+.compare-table td{padding:13px 18px;text-align:center;border-bottom:1px solid var(--light-gray);background:white;}
+.compare-table td:first-child{text-align:left;font-weight:600;background:var(--light);}
+.compare-table td.highlight{background:#fff5f7;}
+.compare-table tr:last-child td{border-bottom:none;}
+.check{color:var(--green);}
+.cross{color:#ccc;}
+
+/* ── FAQ ── */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;}
+.faq-item{border-bottom:1px solid #e0d8cc;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;font-weight:600;font-size:14.5px;user-select:none;gap:16px;}
+.faq-q .ico{color:var(--red);font-size:20px;flex-shrink:0;transition:transform .25s;}
+.faq-item.open .faq-q .ico{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;font-size:13.5px;color:var(--gray);line-height:1.75;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:16px;}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.testi-card{background:white;border-radius:16px;padding:26px;box-shadow:0 4px 24px rgba(200,16,46,.07);border:1px solid #f0d8dd;}
+.testi-stars{color:var(--gold);font-size:15px;margin-bottom:12px;}
+.testi-quote{font-size:14px;color:var(--gray);line-height:1.75;margin-bottom:18px;font-style:italic;position:relative;padding-left:18px;}
+.testi-quote::before{content:'"';position:absolute;left:0;top:-4px;font-size:36px;color:var(--red-light);font-family:'Playfair Display',serif;line-height:1;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:15px;flex-shrink:0;}
+.testi-name{font-weight:600;font-size:13.5px;}
+.testi-loc{font-size:12px;color:var(--gray);}
+.testi-plan{display:inline-block;margin-top:4px;background:var(--red-light);color:var(--red);font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;}
+
+/* ── RECRUITMENT SECTION ── */
+.recruit-section{background:linear-gradient(135deg,var(--red-dark),var(--red),#e0294a);padding:80px 5%;}
+.recruit-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.recruit-text h2{font-family:'Playfair Display',serif;font-size:38px;color:white;margin-bottom:16px;}
+.recruit-text p{color:rgba(255,255,255,.75);font-size:15px;line-height:1.8;margin-bottom:24px;}
+.recruit-benefits{display:flex;flex-direction:column;gap:12px;}
+.rb-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.12);border-radius:10px;padding:13px 16px;}
+.rb-item span{font-size:22px;}
+.rb-item div strong{display:block;color:white;font-size:13.5px;}
+.rb-item div small{font-size:12px;color:rgba(255,255,255,.6);}
+
+/* ── CONTACT / INQUIRY ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.contact-form{background:white;border-radius:20px;padding:36px;border:1px solid #e0d8cc;box-shadow:0 8px 32px rgba(0,0,0,.05);}
+.contact-form h3{font-family:'Playfair Display',serif;font-size:26px;margin-bottom:6px;}
+.contact-form p{font-size:13.5px;color:var(--gray);margin-bottom:24px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:12px;font-weight:600;color:var(--dark);margin-bottom:6px;letter-spacing:.3px;text-transform:uppercase;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1.5px solid #e0d8cc;border-radius:9px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;background:white;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--red);}
+.form-group textarea{resize:vertical;min-height:90px;}
+.form-submit{width:100%;background:var(--red);color:white;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:4px;}
+.form-submit:hover{background:var(--red-dark);transform:translateY(-1px);}
+.contact-info{padding-top:10px;}
+.contact-info h3{font-family:'Playfair Display',serif;font-size:28px;margin-bottom:16px;}
+.contact-info p{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:28px;}
+.cinfo-items{display:flex;flex-direction:column;gap:16px;margin-bottom:32px;}
+.cinfo-item{display:flex;align-items:center;gap:14px;}
+.cinfo-icon{width:44px;height:44px;background:var(--red-light);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.cinfo-label{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--gray);margin-bottom:2px;}
+.cinfo-val{font-size:14px;font-weight:600;color:var(--dark);}
+.social-row{display:flex;gap:12px;}
+.social-btn{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;transition:transform .2s;}
+.social-btn:hover{transform:scale(1.1);}
+
+/* ── YOUTUBE SECTION ── */
+.yt-section{background:var(--dark);padding:70px 5%;}
+.yt-inner{max-width:1200px;margin:0 auto;}
+.yt-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;}
+.yt-header h2{font-family:'Playfair Display',serif;font-size:34px;color:white;}
+.yt-header p{color:rgba(255,255,255,.5);font-size:13px;}
+.yt-subscribe{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:white;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13.5px;font-weight:700;transition:all .2s;}
+.yt-subscribe:hover{background:#cc0000;transform:translateY(-2px);}
+.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.yt-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;overflow:hidden;cursor:pointer;transition:all .25s;}
+.yt-card:hover{background:rgba(255,255,255,.09);transform:translateY(-3px);}
+.yt-thumb{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.yt-play{position:absolute;width:48px;height:48px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;color:white;z-index:2;box-shadow:0 4px 16px rgba(0,0,0,.4);}
+.yt-label{padding:14px 16px;}
+.yt-label .topic-tag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.yt-label .yt-title{font-size:14px;font-weight:600;color:white;line-height:1.4;margin-bottom:6px;}
+.yt-label .yt-meta{font-size:11px;color:rgba(255,255,255,.4);}
+
+/* ── TRUST STRIP ── */
+.trust-strip{background:white;border-top:1px solid #ede8e0;border-bottom:1px solid #ede8e0;padding:20px 5%;}
+.trust-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:500;color:var(--gray);}
+.trust-item .ti-icon{font-size:20px;}
+
+/* ── FOOTER ── */
+footer{background:var(--black);color:rgba(255,255,255,.55);padding:60px 5% 30px;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px;}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:22px;color:white;font-weight:700;margin-bottom:10px;}
+.footer-brand-sub{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;}
+.footer-brand p{font-size:13px;line-height:1.8;margin-bottom:20px;}
+.footer-col h4{color:white;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px;}
+.footer-col a{display:block;font-size:13px;margin-bottom:9px;text-decoration:none;color:rgba(255,255,255,.5);transition:color .2s;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;}
+.footer-legal{color:rgba(255,255,255,.3);font-size:11px;line-height:1.7;max-width:700px;margin-top:12px;}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9999;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.show{display:flex;}
+.modal-box{background:white;border-radius:22px;padding:42px;max-width:500px;width:100%;position:relative;animation:slideUp .3s ease;}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:26px;cursor:pointer;color:#bbb;line-height:1;}
+.modal-box h2{font-family:'Playfair Display',serif;font-size:28px;margin-bottom:8px;}
+.modal-box>p{font-size:14px;color:var(--gray);margin-bottom:26px;}
+
+/* ── FLOATING CTA ── */
+.floating-wa{position:fixed;bottom:28px;right:28px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);cursor:pointer;z-index:999;transition:transform .2s;text-decoration:none;}
+.floating-wa:hover{transform:scale(1.1);}
+.floating-wa svg{width:28px;height:28px;fill:white;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero h1{font-size:40px;}
+  .hero-visual{display:none;}
+  .products-grid{grid-template-columns:repeat(2,1fr);}
+  .persona-grid{grid-template-columns:repeat(2,1fr);}
+  .steps-row{grid-template-columns:1fr;gap:20px;}
+  .steps-row::before{display:none;}
+  .vitality-inner{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .recruit-inner{grid-template-columns:1fr;}
+  .faq-grid{grid-template-columns:1fr;}
+  .testi-grid{grid-template-columns:1fr;}
+  .yt-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:640px){
+  nav{display:none;}
+  .hamburger{display:flex;}
+  .products-grid{grid-template-columns:1fr;}
+  .persona-grid{grid-template-columns:1fr 1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .yt-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:32px;}
+  .section-title{font-size:28px;}
+  .vitality-badges{grid-template-columns:1fr;}
+  .learn-grid{grid-template-columns:1fr;}
+  .trust-inner{gap:20px;}
+}
 </style>
 </head>
 <body>
 
-<!-- ANNOUNCEMENT -->
-<div class="announcement">
-  🌟 FREE financial consultation with every inquiry — Talk to a licensed AIA Life Planner today!
+<!-- ANNOUNCE -->
+<div class="announce-bar">
+  🎬 New YouTube video every week! <a href="https://youtube.com/@infinitewealthfinancials" target="_blank">Subscribe to @infinitewealthfinancials</a> for free AIA insurance tips in Filipino!
 </div>
 
 <!-- HEADER -->
 <header>
   <a class="logo" href="#">
-    <div class="logo-icon">
-      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-    </div>
-    <div class="logo-text">
-      <div class="brand">Infinite Wealth Financials</div>
-      <div class="sub">Authorized AIA Life Planner</div>
+    <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div>
+      <div class="logo-brand">Infinite Wealth Financials</div>
+      <div class="logo-sub">AIA Life Planner · Cebu PH</div>
     </div>
   </a>
-
   <nav>
     <a href="#products">Products</a>
-    <a href="#about">About AIA</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="#faq">FAQ</a>
+    <a href="#vitality">AIA Vitality</a>
+    <a href="#learn">Learn</a>
+    <a href="#who">Who It's For</a>
+    <a href="#videos">Videos</a>
+    <a href="#careers">Join Us</a>
+    <a href="#contact" class="nav-cta">Free Quote</a>
   </nav>
-
-  <a href="#contact" class="header-cta">Get a Free Quote</a>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </header>
 
-<!-- BREADCRUMB -->
-<div class="breadcrumb">
-  <a href="#">Home</a> &rsaquo; <a href="#">Health Insurance</a> &rsaquo; <span>AIA Critical Protect 100</span>
+<!-- MOBILE MENU -->
+<div id="mobileMenu" style="display:none;background:white;padding:20px 5%;border-bottom:2px solid var(--light-gray);z-index:190;position:sticky;top:70px;">
+  <div style="display:flex;flex-direction:column;gap:14px;">
+    <a href="#products" style="color:var(--dark);text-decoration:none;font-weight:500;font-size:15px;" onclick="toggleMenu()">Products</a>
+    <a href="#vitality" style="color:var(--dark);text-decoration:none;font-weight:500;font-size:15px;" onclick="toggleMenu()">AIA Vitality</a>
+    <a href="#learn" style="color:var(--dark);text-decoration:none;font-weight:500;font-size:15px;" onclick="toggleMenu()">Learn</a>
+    <a href="#videos" style="color:var(--dark);text-decoration:none;font-weight:500;font-size:15px;" onclick="toggleMenu()">Videos</a>
+    <a href="#careers" style="color:var(--dark);text-decoration:none;font-weight:500;font-size:15px;" onclick="toggleMenu()">Join Us</a>
+    <a href="#contact" style="background:var(--red);color:white;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:9px;text-align:center;" onclick="toggleMenu()">Get a Free Quote</a>
+  </div>
 </div>
 
-<!-- PRODUCT HERO -->
-<section class="product-hero">
-
-  <!-- Gallery -->
-  <div class="gallery">
-    <div class="main-image">
-      <div class="product-badge-hero">AIA Best Seller</div>
-      <div class="product-main-icon">
-        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </div>
-      <h2>AIA Critical Protect 100</h2>
-      <p>Coverage from Age 0 to 100</p>
-    </div>
-    <div class="thumbnails">
-      <div class="thumb active">🛡️</div>
-      <div class="thumb">💊</div>
-      <div class="thumb">🏥</div>
-      <div class="thumb">👨‍👩‍👧</div>
-    </div>
-  </div>
-
-  <!-- Product Info -->
-  <div class="product-info">
-    <div class="product-vendor">Infinite Wealth Financials × AIA Philippines</div>
-
-    <h1 class="product-title">AIA Critical<br>Protect 100</h1>
-    <p class="product-subtitle">Comprehensive life & critical illness insurance protecting you and your family against 100 critical illnesses — from birth to age 100.</p>
-
-    <div class="stars">
-      <span>★★★★★</span>
-      <small>4.9 out of 5 (128 reviews)</small>
-    </div>
-
-    <div class="price-section">
-      <div class="price-label">Starting at</div>
-      <div class="price">₱1,500 <small>/ month</small></div>
-      <div class="price-note">Exact premium depends on age, coverage amount & plan type</div>
-    </div>
-
-    <!-- Plan Selection -->
-    <div class="section-label">Choose Your Plan</div>
-    <div class="plan-options">
-      <div class="plan-option selected" onclick="selectPlan(this)">
-        <div class="plan-name">Essential</div>
-        <div class="plan-price">From ₱1,500/mo</div>
-        <span class="plan-badge">POPULAR</span>
-      </div>
-      <div class="plan-option" onclick="selectPlan(this)">
-        <div class="plan-name">Premium</div>
-        <div class="plan-price">From ₱3,200/mo</div>
-      </div>
-      <div class="plan-option" onclick="selectPlan(this)">
-        <div class="plan-name">Elite</div>
-        <div class="plan-price">From ₱5,500/mo</div>
-        <span class="plan-badge">BEST VALUE</span>
-      </div>
-      <div class="plan-option" onclick="selectPlan(this)">
-        <div class="plan-name">Family</div>
-        <div class="plan-price">From ₱8,000/mo</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Authorized AIA Life Planner · Philippines</div>
+      <h1>Protect Your Family.<br>Grow Your <span>Wealth.</span><br>Live Better.</h1>
+      <p class="hero-desc">Trusted AIA Philippines insurance solutions — explained simply, set up personally. From critical illness to VUL investments, we guide Filipinos toward lasting financial security.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">📋 Get a Free Quote</a>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="btn-secondary">▶ Watch Our Videos</a>
       </div>
     </div>
-
-    <!-- Coverage Amount -->
-    <div class="section-label">Sum Assured</div>
-    <div class="coverage-pills">
-      <div class="pill" onclick="selectPill(this)">₱500K</div>
-      <div class="pill selected" onclick="selectPill(this)">₱1M</div>
-      <div class="pill" onclick="selectPill(this)">₱2M</div>
-      <div class="pill" onclick="selectPill(this)">₱5M</div>
-      <div class="pill" onclick="selectPill(this)">Custom</div>
-    </div>
-
-    <!-- Quantity + Add to Cart -->
-    <div class="qty-row">
-      <div class="qty-box">
-        <button onclick="changeQty(-1)">−</button>
-        <input type="number" id="qty" value="1" min="1" max="10">
-        <button onclick="changeQty(1)">+</button>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:rgba(200,16,46,.15);">🛡️</div>
+        <div class="hero-card-text"><div class="label">Top Product</div><div class="value">AIA Critical Protect 100</div></div>
       </div>
-      <button class="add-cart-btn" onclick="showModal()">📋 Request a Quote</button>
-    </div>
-
-    <button class="buy-btn" onclick="showModal()">🗓️ Book a Free Consultation Now</button>
-
-    <!-- Trust Strip -->
-    <div class="trust-strip">
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Insurance Commission Licensed
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:rgba(201,150,58,.15);">💼</div>
+        <div class="hero-card-text"><div class="label">VUL Plan</div><div class="value">AIA Goals Protect</div></div>
       </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/></svg>
-        100% Free Consultation
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:rgba(46,204,113,.15);">💊</div>
+        <div class="hero-card-text"><div class="label">Health</div><div class="value">AIA Health Achieve</div></div>
       </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        No Hidden Charges
-      </div>
-    </div>
-
-    <!-- Key Benefits -->
-    <div class="benefits-box">
-      <div class="box-header">⚡ What's Included</div>
-      <div class="benefit-item">
-        <div class="benefit-icon">🦠</div>
-        <div class="benefit-text">
-          <div class="btitle">100 Critical Illnesses Covered</div>
-          <div class="bdesc">Cancer, heart attack, stroke, kidney failure & 96 more</div>
-        </div>
-      </div>
-      <div class="benefit-item">
-        <div class="benefit-icon">🏥</div>
-        <div class="benefit-text">
-          <div class="btitle">Hospitalization Benefits</div>
-          <div class="bdesc">Daily cash benefit for hospital confinement & ICU stay</div>
-        </div>
-      </div>
-      <div class="benefit-item">
-        <div class="benefit-icon">💰</div>
-        <div class="benefit-text">
-          <div class="btitle">Life Protection up to Age 100</div>
-          <div class="bdesc">Lump sum death benefit for your loved ones</div>
-        </div>
-      </div>
-      <div class="benefit-item">
-        <div class="benefit-icon">💎</div>
-        <div class="benefit-text">
-          <div class="btitle">AIA Vitality Rewards</div>
-          <div class="bdesc">Earn rewards & premium discounts for healthy living</div>
-        </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="snum">₱257B</span><div class="slabel">AIA PH Total Assets</div></div>
+        <div class="hero-stat"><span class="snum">1.2M+</span><div class="slabel">Policyholders</div></div>
+        <div class="hero-stat"><span class="snum">75+</span><div class="slabel">Years in PH</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DESCRIPTION SECTION -->
-<section class="description-section" id="about">
-  <div class="desc-tabs">
-    <button class="tab-btn active" onclick="switchTab('description', this)">Description</button>
-    <button class="tab-btn" onclick="switchTab('coverage', this)">Coverage Details</button>
-    <button class="tab-btn" onclick="switchTab('eligibility', this)">Eligibility</button>
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="ti-icon">🏛️</span> Insurance Commission Licensed</div>
+    <div class="trust-item"><span class="ti-icon">🤝</span> Free Consultation</div>
+    <div class="trust-item"><span class="ti-icon">🌏</span> AIA Group – Asia's Largest Life Insurer</div>
+    <div class="trust-item"><span class="ti-icon">🇵🇭</span> Filipino-First Service</div>
+    <div class="trust-item"><span class="ti-icon">📺</span> Educational YouTube Channel</div>
+    <div class="trust-item"><span class="ti-icon">✅</span> No Hidden Charges</div>
   </div>
+</div>
 
-  <div class="tab-content active" id="tab-description">
-    <div class="desc-grid">
-      <div>
-        <h3>Your Shield Against Life's Greatest Financial Risks</h3>
-        <p>AIA Critical Protect 100 is one of AIA Philippines' most trusted protection plans — designed to give you and your family a financial safety net when you need it most. From diagnosis of a critical illness to daily hospital costs, this plan ensures your savings stay intact.</p>
-        <p>As an authorized AIA Life Planner through Infinite Wealth Financials, we walk you through every step — from choosing the right coverage amount to understanding your policy terms. Our YouTube channel features real Filipino families who've benefited from this plan.</p>
-        <p>With AIA's century-old legacy and their leading position in Asia-Pacific, you can trust that your premiums are working hard for your future.</p>
+<!-- SECTION NAV -->
+<div class="section-nav">
+  <div class="section-nav-inner">
+    <button class="snav-btn active" onclick="scrollTo('products',this)">All Products</button>
+    <button class="snav-btn" onclick="scrollTo('vitality',this)">AIA Vitality</button>
+    <button class="snav-btn" onclick="scrollTo('compare',this)">Compare Plans</button>
+    <button class="snav-btn" onclick="scrollTo('learn',this)">Learn</button>
+    <button class="snav-btn" onclick="scrollTo('who',this)">Who It's For</button>
+    <button class="snav-btn" onclick="scrollTo('howto',this)">How to Apply</button>
+    <button class="snav-btn" onclick="scrollTo('testimonials',this)">Reviews</button>
+    <button class="snav-btn" onclick="scrollTo('faq',this)">FAQ</button>
+    <button class="snav-btn" onclick="scrollTo('videos',this)">Videos</button>
+    <button class="snav-btn" onclick="scrollTo('careers',this)">Careers</button>
+  </div>
+</div>
+
+<!-- ===== PRODUCTS ===== -->
+<div id="products" style="background:var(--light);padding:70px 0 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 5% 50px;">
+    <div class="section-header">
+      <div class="section-tag">AIA Philippines Products</div>
+      <h2 class="section-title">Find the Right Plan for Your Life Goals</h2>
+      <p class="section-desc">From protecting against critical illness, to growing wealth through investments, to securing your family's future — AIA has a solution for every stage of life.</p>
+    </div>
+
+    <!-- Health / Critical Illness -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:18px;color:var(--black);display:flex;align-items:center;gap:10px;">🛡️ <span>Health & Critical Illness Protection</span></h3>
+    <div class="products-grid" style="margin-bottom:48px;">
+      <div class="product-card theme-red">
+        <div class="pc-header">
+          <div class="pc-icon">❤️</div>
+          <span class="pc-tag">⭐ Best Seller</span>
+          <div class="pc-title">AIA Critical Protect 100</div>
+          <div class="pc-desc">A whole life critical illness plan that covers you against 100 major and minor illnesses from age 0 all the way to 100. Not subject to market risk.</div>
+          <ul class="pc-features">
+            <li>Covers 100 critical illnesses until age 100</li>
+            <li>25% advance cash benefit for early-stage illness</li>
+            <li>Extra 50% coverage for gender-specific cancers</li>
+            <li>Annual 10% recovery income for 5 years after CI claim</li>
+            <li>Premium waiver for child insured if parent passes</li>
+            <li>AIA Vitality integrated — earn coverage boosts</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">From <strong>₱1,500/mo</strong></div>
+          <button class="pc-btn" onclick="openModal('AIA Critical Protect 100')">Inquire Now</button>
+        </div>
+      </div>
+
+      <div class="product-card theme-teal">
+        <div class="pc-header">
+          <div class="pc-icon">🏥</div>
+          <span class="pc-tag">Health + Life</span>
+          <div class="pc-title">AIA Health Achieve</div>
+          <div class="pc-desc">A VUL-based health and life insurance plan covering 56 critical illnesses plus hospitalization. Powered by AIA Vitality to motivate healthier choices.</div>
+          <ul class="pc-features">
+            <li>Covers 56 major critical illnesses</li>
+            <li>Daily hospital confinement benefit up to 365 days</li>
+            <li>Life insurance coverage included</li>
+            <li>Investment component grows your fund</li>
+            <li>AIA Vitality rewards for healthy living</li>
+            <li>Premium waiver on total/permanent disability or CI</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">From <strong>₱1,800/mo</strong></div>
+          <button class="pc-btn" onclick="openModal('AIA Health Achieve')">Inquire Now</button>
+        </div>
+      </div>
+
+      <div class="product-card theme-blue">
+        <div class="pc-header">
+          <div class="pc-icon">👫</div>
+          <span class="pc-tag">Joint Plan</span>
+          <div class="pc-title">Active Joint Critical Protect</div>
+          <div class="pc-desc">A joint life plan for you AND one loved one — covering both against the 10 most common critical illnesses and untimely death under one affordable premium.</div>
+          <ul class="pc-features">
+            <li>Covers 2 lives under one plan</li>
+            <li>10 critical illnesses covered for both lives</li>
+            <li>Extra 10% for angioplasty; 20% for diabetic complications</li>
+            <li>Auto-renews for 10 years with no medical exam if no claims</li>
+            <li>AIA Vitality coverage boosts (up to 20% at start)</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">From <strong>₱1,200/mo</strong></div>
+          <button class="pc-btn" onclick="openModal('Active Joint Critical Protect')">Inquire Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Life Protection -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:18px;color:var(--black);display:flex;align-items:center;gap:10px;">💙 <span>Life Protection Plans</span></h3>
+    <div class="products-grid" style="margin-bottom:48px;">
+      <div class="product-card theme-red">
+        <div class="pc-header">
+          <div class="pc-icon">🌿</div>
+          <span class="pc-tag">Whole Life</span>
+          <div class="pc-title">AIA All-In-One</div>
+          <div class="pc-desc">Protection against life's 4 biggest risks — death, accident, disability, and critical illness — for as low as ₱100/day. Coverage up to age 100 with Vitality.</div>
+          <ul class="pc-features">
+            <li>10 critical illnesses covered</li>
+            <li>Accidental death (2x if on public transit or natural disaster)</li>
+            <li>Total & permanent disability benefit before age 65</li>
+            <li>100% face amount returned if no claims at age 100</li>
+            <li>Premium waiver on CI diagnosis or disability</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">From <strong>₱800/mo</strong></div>
+          <button class="pc-btn" onclick="openModal('AIA All-In-One')">Inquire Now</button>
+        </div>
+      </div>
+
+      <div class="product-card theme-purple">
+        <div class="pc-header">
+          <div class="pc-icon">💎</div>
+          <span class="pc-tag">VUL + Protection</span>
+          <div class="pc-title">AIA All-In-One Plus</div>
+          <div class="pc-desc">Upgraded version with an investment component — the same 4-risk protection plus a growing fund value. 20% coverage boost at the start with AIA Vitality.</div>
+          <ul class="pc-features">
+            <li>Everything in AIA All-In-One</li>
+            <li>Investment fund component for savings growth</li>
+            <li>Full maturity benefit (life insurance + account value) at 80</li>
+            <li>Hospital daily cash benefit ₱1,000–₱5,000/day rider</li>
+            <li>Guaranteed cash benefit on policy's 10th year</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">From <strong>₱1,500/mo</strong></div>
+          <button class="pc-btn" onclick="openModal('AIA All-In-One Plus')">Inquire Now</button>
+        </div>
+      </div>
+
+      <div class="product-card theme-gold">
+        <div class="pc-header">
+          <div class="pc-icon">🌟</div>
+          <span class="pc-tag">Whole Life</span>
+          <div class="pc-title">AIA Lifetime Protect</div>
+          <div class="pc-desc">A participating whole life plan with 200% life coverage, potential dividends, add-on protection benefits, and coverage until age 100. Legacy building starts here.</div>
+          <ul class="pc-features">
+            <li>200% life insurance coverage</li>
+            <li>Participating plan with potential dividends</li>
+            <li>Add-on riders for accidents, disability, CI</li>
+            <li>Build legacy for your family</li>
+            <li>Coverage until age 100</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">From <strong>₱2,000/mo</strong></div>
+          <button class="pc-btn" onclick="openModal('AIA Lifetime Protect')">Inquire Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VUL / Investment -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:18px;color:var(--black);display:flex;align-items:center;gap:10px;">📈 <span>VUL & Investment Plans</span></h3>
+    <div class="products-grid" style="margin-bottom:48px;">
+      <div class="product-card theme-gold">
+        <div class="pc-header">
+          <div class="pc-icon">🚀</div>
+          <span class="pc-tag">⭐ New 2025</span>
+          <div class="pc-title">AIA Goals Protect</div>
+          <div class="pc-desc">AIA's newest flexible VUL plan starting at just ₱2,085/month. Invest in the market's highest-performing local and global funds while keeping your family protected.</div>
+          <ul class="pc-features">
+            <li>Market's highest loyalty bonus — up to 3.5% added to fund</li>
+            <li>No Lapse Guarantee — stays active regardless of market</li>
+            <li>3 packages: Protection, Health, or Savings Growth</li>
+            <li>Optional CI, hospital, accident, disability riders</li>
+            <li>AIA Vitality integrated for wellness rewards</li>
+            <li>Managed by AIA Investment Management</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">From <strong>₱2,085/mo</strong></div>
+          <button class="pc-btn" onclick="openModal('AIA Goals Protect')">Inquire Now</button>
+        </div>
+      </div>
+
+      <div class="product-card theme-blue">
+        <div class="pc-header">
+          <div class="pc-icon">🌳</div>
+          <span class="pc-tag">Single Pay VUL</span>
+          <div class="pc-title">AIA Money Tree</div>
+          <div class="pc-desc">A single-payment VUL investment plan — pay once, grow forever. Access global investment funds with no entry fee and a guaranteed 125% minimum death benefit.</div>
+          <ul class="pc-features">
+            <li>One-time payment from ₱125,000</li>
+            <li>No entry fee — all your money goes to work</li>
+            <li>Global funds — peso and dollar variants available</li>
+            <li>Switch funds or top-up anytime (as low as ₱1,000)</li>
+            <li>125% minimum guaranteed death benefit</li>
+            <li>Accident & Health rider included</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">Min <strong>₱125,000</strong> one-time</div>
+          <button class="pc-btn" onclick="openModal('AIA Money Tree')">Inquire Now</button>
+        </div>
+      </div>
+
+      <div class="product-card theme-green">
+        <div class="pc-header">
+          <div class="pc-icon">🏦</div>
+          <span class="pc-tag">High Cash Value</span>
+          <div class="pc-title">AIA Money Tree Elite</div>
+          <div class="pc-desc">One-time investment in AIA's Global Elite Funds — designed for high-net-worth Filipinos who want maximum wealth potential and lifetime protection simultaneously.</div>
+          <ul class="pc-features">
+            <li>Access to AIA Global Elite investment funds</li>
+            <li>No entry fee for maximum fund allocation</li>
+            <li>Peso and dollar currency options</li>
+            <li>125% guaranteed life coverage from Day 1</li>
+            <li>Top-up and fund switching flexibility</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">From <strong>₱125,000</strong> one-time</div>
+          <button class="pc-btn" onclick="openModal('AIA Money Tree Elite')">Inquire Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Savings / Legacy / Retirement -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:18px;color:var(--black);display:flex;align-items:center;gap:10px;">🎯 <span>Savings, Education & Retirement</span></h3>
+    <div class="products-grid">
+      <div class="product-card theme-purple">
+        <div class="pc-header">
+          <div class="pc-icon">🎓</div>
+          <span class="pc-tag">Education</span>
+          <div class="pc-title">AIA Education Plan</div>
+          <div class="pc-desc">Start funding your child's college dreams today with a plan that grows tax-free and pays out exactly when needed — from ₱1,200/month.</div>
+          <ul class="pc-features">
+            <li>Guaranteed college fund at target year</li>
+            <li>Life insurance on the parent/payor</li>
+            <li>Premium waiver if parent passes away or is disabled</li>
+            <li>Investment growth component</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">From <strong>₱1,200/mo</strong></div>
+          <button class="pc-btn" onclick="openModal('AIA Education Plan')">Inquire Now</button>
+        </div>
+      </div>
+
+      <div class="product-card theme-gold">
+        <div class="pc-header">
+          <div class="pc-icon">🌅</div>
+          <span class="pc-tag">Retirement</span>
+          <div class="pc-title">AIA Future Builder</div>
+          <div class="pc-desc">A VUL plan designed to help you build a retirement fund while staying protected. Access diverse global and local funds to grow your savings efficiently.</div>
+          <ul class="pc-features">
+            <li>Investment component — local and global funds</li>
+            <li>Life insurance coverage throughout</li>
+            <li>AIA Vitality wellness program included</li>
+            <li>Flexible premium adjustments</li>
+            <li>Suitable for retirement fund building</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price">From <strong>₱3,000/mo</strong></div>
+          <button class="pc-btn" onclick="openModal('AIA Future Builder')">Inquire Now</button>
+        </div>
+      </div>
+
+      <div class="product-card theme-teal">
+        <div class="pc-header">
+          <div class="pc-icon">👨‍👩‍👧‍👦</div>
+          <span class="pc-tag">Corporate</span>
+          <div class="pc-title">AIA Group / Corporate Plans</div>
+          <div class="pc-desc">Protect your entire team with comprehensive group life, health, and accidental coverage. Custom plans for SMEs, large corporations, and employee benefits.</div>
+          <ul class="pc-features">
+            <li>Group life and health insurance</li>
+            <li>Accidental death and disability coverage</li>
+            <li>HMO-type benefit add-ons available</li>
+            <li>Custom premium based on group size</li>
+            <li>Employee wellness program (AIA Vitality)</li>
+          </ul>
+        </div>
+        <div class="pc-footer">
+          <div class="pc-price"><strong>Custom</strong> pricing</div>
+          <button class="pc-btn" onclick="openModal('AIA Corporate Group Plans')">Inquire Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== AIA VITALITY ===== -->
+<div id="vitality">
+  <div class="vitality-section">
+    <div class="vitality-inner">
+      <div class="vitality-text">
+        <div class="section-tag">AIA Vitality</div>
+        <h2>Asia's #1 Wellness<br>Rewards Program</h2>
+        <p>AIA Vitality isn't just an app — it's a science-backed wellness program baked into your insurance policy. The healthier you live, the more rewards you earn — and the better your coverage gets.</p>
+        <div class="vitality-steps">
+          <div class="vstep">
+            <div class="vstep-num">1</div>
+            <div class="vstep-text"><strong>Know Your Health</strong><span>Complete health assessments and earn points for understanding your body baseline</span></div>
+          </div>
+          <div class="vstep">
+            <div class="vstep-num">2</div>
+            <div class="vstep-text"><strong>Improve Your Health</strong><span>Earn points by exercising, eating well, getting health screenings, and sleeping better</span></div>
+          </div>
+          <div class="vstep">
+            <div class="vstep-num">3</div>
+            <div class="vstep-text"><strong>Earn & Enjoy Rewards</strong><span>Achieve Bronze, Silver, Gold or Platinum status — unlock premium discounts and exclusive perks</span></div>
+          </div>
+          <div class="vstep">
+            <div class="vstep-num">4</div>
+            <div class="vstep-text"><strong>Get More Coverage</strong><span>AIA Vitality products give up to 20% coverage boost from Day 1 — grows as your health improves</span></div>
+          </div>
+        </div>
       </div>
       <div>
-        <h3>Why Choose AIA Critical Protect 100?</h3>
-        <p>Unlike HMO plans that expire, AIA Critical Protect 100 gives you lifetime coverage with cash benefits you can use however you need — whether for treatment, recovery, or daily living expenses while you heal.</p>
-        <p>The plan also includes AIA Vitality — Asia's #1 wellness rewards program — giving you discounts on premiums and exclusive perks just for taking care of your health.</p>
-        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="yt-link">
-          ▶ Watch Our YouTube Explainer
+        <div class="vitality-badges">
+          <div class="vbadge"><div class="vbadge-icon">🏃</div><strong>Active Lifestyle</strong><span>Sync your fitness tracker — earn points per 1,000 steps, workouts & gym visits</span></div>
+          <div class="vbadge"><div class="vbadge-icon">🩺</div><strong>Health Screenings</strong><span>Annual check-ups, blood tests, BMI checks — know your numbers, earn points</span></div>
+          <div class="vbadge"><div class="vbadge-icon">💊</div><strong>Coverage Boost</strong><span>Start with 20% extra coverage, grow it up to 50% as you live healthier</span></div>
+          <div class="vbadge"><div class="vbadge-icon">🎁</div><strong>Partner Rewards</strong><span>Discounts on flights, hotels, gym memberships, retail, and more across PH & Asia</span></div>
+          <div class="vbadge"><div class="vbadge-icon">💰</div><strong>Premium Discounts</strong><span>Platinum members earn up to 15% off their annual insurance premium</span></div>
+          <div class="vbadge"><div class="vbadge-icon">📱</div><strong>Vitality App</strong><span>Track progress, log activities, claim rewards — all from your smartphone</span></div>
+        </div>
+        <div style="margin-top:20px;background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.25);border-radius:14px;padding:18px 20px;">
+          <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:6px;">💡 Did You Know?</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;">Over 3.5 million AIA Vitality members across Asia-Pacific are already living healthier and earning rewards. Now available in the Philippines through Infinite Wealth Financials.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COMPARE ===== -->
+<div id="compare" style="background:var(--light);padding:70px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 5%;">
+    <div class="section-header">
+      <div class="section-tag">Side-by-Side Comparison</div>
+      <h2 class="section-title">Insurance vs HMO vs VUL — What's the Difference?</h2>
+      <p class="section-desc">One of the most common questions on our YouTube channel. Here's the honest breakdown so you can make an informed decision.</p>
+    </div>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="col-head">Feature</th>
+            <th>HMO Plan</th>
+            <th class="highlight">AIA Life Insurance</th>
+            <th>AIA VUL Plan</th>
+            <th>Bank Savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Coverage Period</td><td>Annual (renewable)</td><td class="highlight">Lifetime / up to age 100</td><td>Lifetime</td><td>No coverage</td></tr>
+          <tr><td>Critical Illness Lump Sum</td><td class="cross">✗</td><td class="highlight check">✓ Up to 100 CI</td><td class="check">✓ Riders available</td><td class="cross">✗</td></tr>
+          <tr><td>Death Benefit</td><td class="cross">✗</td><td class="highlight check">✓ Guaranteed</td><td class="check">✓ Guaranteed</td><td class="cross">✗</td></tr>
+          <tr><td>Investment Growth</td><td class="cross">✗</td><td class="highlight cross">✗ (Whole Life)</td><td class="check">✓ Fund growth</td><td>1–3% interest</td></tr>
+          <tr><td>Hospital Confinement</td><td class="check">✓ (via network)</td><td class="highlight check">✓ Cash benefit (rider)</td><td class="check">✓ Cash benefit (rider)</td><td class="cross">✗</td></tr>
+          <tr><td>Cash Back / Maturity</td><td class="cross">✗</td><td class="highlight">Depends on plan</td><td class="check">✓ Account value</td><td class="check">✓ Principal</td></tr>
+          <tr><td>Premium Waiver on CI/Disability</td><td class="cross">✗</td><td class="highlight check">✓</td><td class="check">✓</td><td class="cross">✗</td></tr>
+          <tr><td>AIA Vitality Rewards</td><td class="cross">✗</td><td class="highlight check">✓ (Most plans)</td><td class="check">✓ (Most plans)</td><td class="cross">✗</td></tr>
+          <tr><td>Market Risk</td><td>None</td><td class="highlight">None (Whole Life)</td><td>Investment risk applies</td><td>Low</td></tr>
+          <tr><td>Best For</td><td>Annual check-ups</td><td class="highlight">Pure protection</td><td>Protection + savings</td><td>Emergency fund</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:24px;padding:20px 24px;background:white;border-radius:12px;border:1px solid #ede8e0;font-size:13.5px;color:var(--gray);line-height:1.7;">
+      <strong style="color:var(--dark);">📌 Our Recommendation:</strong> Most Filipinos benefit from having BOTH an HMO (for outpatient/annual use) AND a life insurance plan (for critical illness lump sum + death benefit). Our Life Planners will help you design a customized financial plan that fits your budget.
+    </div>
+  </div>
+</div>
+
+<!-- ===== LEARN ===== -->
+<div id="learn" style="background:white;padding:70px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 5%;">
+    <div class="section-header">
+      <div class="section-tag">Financial Education</div>
+      <h2 class="section-title">Learn Before You Decide</h2>
+      <p class="section-desc">Topics we cover on our YouTube channel — because at Infinite Wealth Financials, we educate first, then help you choose the right plan.</p>
+    </div>
+    <div class="learn-grid">
+      <div class="learn-card">
+        <div class="lc-icon">🧮</div>
+        <div class="lc-title">What is VUL Insurance?</div>
+        <div class="lc-desc">Variable Universal Life (VUL) insurance combines life insurance protection with an investment component. Your premiums are split between covering your life and growing your savings through market funds. Learn the pros, cons, and who it's best for.</div>
+        <div class="lc-topics"><span class="lc-topic">VUL Basics</span><span class="lc-topic">Fund Selection</span><span class="lc-topic">Investment Risk</span><span class="lc-topic">Premium Allocation</span></div>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="lc-link">▶ Watch on YouTube →</a>
+      </div>
+      <div class="learn-card">
+        <div class="lc-icon">🏥</div>
+        <div class="lc-title">HMO vs Life Insurance vs VUL</div>
+        <div class="lc-desc">Many Filipinos confuse HMO plans with life insurance. We explain the difference clearly — why each one exists, what gaps they fill, and why you likely need more than just an HMO if you want true financial protection.</div>
+        <div class="lc-topics"><span class="lc-topic">HMO Plans</span><span class="lc-topic">Life Insurance</span><span class="lc-topic">VUL</span><span class="lc-topic">Which to Get First</span></div>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="lc-link">▶ Watch on YouTube →</a>
+      </div>
+      <div class="learn-card">
+        <div class="lc-icon">💰</div>
+        <div class="lc-title">How Much Insurance Do I Need?</div>
+        <div class="lc-desc">A common mistake is getting too little coverage. We walk you through the DIME method (Debt, Income, Mortgage, Education) and AIA's Financial Needs Calculator to compute the ideal coverage amount for your income level and family situation.</div>
+        <div class="lc-topics"><span class="lc-topic">Coverage Calculation</span><span class="lc-topic">DIME Method</span><span class="lc-topic">Sum Assured</span></div>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="lc-link">▶ Watch on YouTube →</a>
+      </div>
+      <div class="learn-card">
+        <div class="lc-icon">🌴</div>
+        <div class="lc-title">OFW Financial Planning Guide</div>
+        <div class="lc-desc">Working abroad? Your family depends on your remittances — but what happens if something goes wrong? We cover the smart OFW financial strategy: save, invest, insure. Including how AIA plans can protect your family in the Philippines remotely.</div>
+        <div class="lc-topics"><span class="lc-topic">OFW Insurance</span><span class="lc-topic">Remittances</span><span class="lc-topic">Remote Enrollment</span><span class="lc-topic">Dollar Plans</span></div>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="lc-link">▶ Watch on YouTube →</a>
+      </div>
+      <div class="learn-card">
+        <div class="lc-icon">🌅</div>
+        <div class="lc-title">Retirement Planning in the Philippines</div>
+        <div class="lc-desc">SSS pension alone is not enough to retire comfortably. We explain the Rule of 25, retirement gap analysis, and how combining SSS + mutual funds + VUL insurance is the most powerful Filipino retirement strategy.</div>
+        <div class="lc-topics"><span class="lc-topic">SSS Pension</span><span class="lc-topic">Rule of 25</span><span class="lc-topic">VUL for Retirement</span><span class="lc-topic">Passive Income</span></div>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="lc-link">▶ Watch on YouTube →</a>
+      </div>
+      <div class="learn-card">
+        <div class="lc-icon">🎓</div>
+        <div class="lc-title">Saving for Your Child's Education</div>
+        <div class="lc-desc">College costs are rising faster than inflation. We walk through how to compute your education fund target, when to start (the earlier the better!), and why an AIA education plan beats a regular savings account or time deposit by a wide margin.</div>
+        <div class="lc-topics"><span class="lc-topic">Education Fund</span><span class="lc-topic">Inflation</span><span class="lc-topic">Premium Waiver</span><span class="lc-topic">When to Start</span></div>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="lc-link">▶ Watch on YouTube →</a>
+      </div>
+      <div class="learn-card">
+        <div class="lc-icon">🦠</div>
+        <div class="lc-title">Understanding Critical Illness Coverage</div>
+        <div class="lc-desc">Cancer, stroke, and heart disease are the top 3 killers of Filipinos. A critical illness diagnosis doesn't just affect your health — it can wipe out your savings. We explain how AIA Critical Protect 100 fills the gap no HMO can fill.</div>
+        <div class="lc-topics"><span class="lc-topic">CI Top 3</span><span class="lc-topic">Lump Sum Benefit</span><span class="lc-topic">100 Illnesses</span><span class="lc-topic">Early Stage</span></div>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="lc-link">▶ Watch on YouTube →</a>
+      </div>
+      <div class="learn-card">
+        <div class="lc-icon">📝</div>
+        <div class="lc-title">How to File an Insurance Claim</div>
+        <div class="lc-desc">We walk you through the step-by-step AIA claims process — from what documents are needed, to how fast claims are released. Real client stories shared so you know exactly what to expect when the time comes.</div>
+        <div class="lc-topics"><span class="lc-topic">Claims Process</span><span class="lc-topic">Documents Needed</span><span class="lc-topic">CI Claims</span><span class="lc-topic">Death Claims</span></div>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="lc-link">▶ Watch on YouTube →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHO IT'S FOR ===== -->
+<div id="who" style="background:var(--light);padding:70px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 5%;">
+    <div class="section-header">
+      <div class="section-tag">Who Should Apply</div>
+      <h2 class="section-title">AIA Has a Plan for Every Filipino</h2>
+      <p class="section-desc">Whether you're a fresh graduate, a parent, an OFW, or a business owner — there's an AIA Philippines plan designed specifically for your stage in life.</p>
+    </div>
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-icon">👩‍🎓</div>
+        <div class="persona-label">Young Professionals</div>
+        <div class="persona-desc">Start early, pay less. Getting insured in your 20s locks in the lowest premiums for life. Build wealth alongside protection from Day 1.</div>
+        <div class="persona-tag">AIA All-In-One / Goals Protect</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">👨‍👩‍👧</div>
+        <div class="persona-label">Parents & Families</div>
+        <div class="persona-desc">Protect your income so your family never suffers financially. Cover your children's education and secure their future no matter what happens to you.</div>
+        <div class="persona-tag">AIA Critical Protect / Education</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">✈️</div>
+        <div class="persona-label">OFWs</div>
+        <div class="persona-desc">Your family depends on your remittances. A critical illness or accident abroad can stop everything. Let AIA protect the people you're working hard for back home.</div>
+        <div class="persona-tag">AIA Money Tree / Health Achieve</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">💼</div>
+        <div class="persona-label">Business Owners</div>
+        <div class="persona-desc">Key man insurance, business continuity planning, and retirement strategies. Protect not just your family but your business too.</div>
+        <div class="persona-tag">AIA Goals Protect / Group Plans</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">🌅</div>
+        <div class="persona-label">Near-Retirement (50+)</div>
+        <div class="persona-desc">It's not too late! Lock in coverage before rates increase. Focus on guaranteed income streams and CI protection to enjoy your golden years without financial worry.</div>
+        <div class="persona-tag">AIA Future Builder / Lifetime</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">👶</div>
+        <div class="persona-label">Children (Age 0+)</div>
+        <div class="persona-desc">Insuring children young means lifelong low premiums and guaranteed insurability. AIA Critical Protect 100 is available from birth. Give them the best head start.</div>
+        <div class="persona-tag">AIA Critical Protect 100</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">💑</div>
+        <div class="persona-label">Couples</div>
+        <div class="persona-desc">Protect both of you under one plan with the Active Joint Critical Protect — covering you and your partner against the 10 most common critical illnesses together.</div>
+        <div class="persona-tag">Active Joint Critical Protect</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">🏢</div>
+        <div class="persona-label">Employees / HR</div>
+        <div class="persona-desc">Attract and retain talent by offering comprehensive group life and health insurance benefits. AIA corporate plans scale from small businesses to large corporations.</div>
+        <div class="persona-tag">AIA Corporate Group Plans</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HOW TO APPLY ===== -->
+<div id="howto" style="background:white;padding:70px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 5%;">
+    <div class="section-header">
+      <div class="section-tag">Application Process</div>
+      <h2 class="section-title">Getting Insured is Easier Than You Think</h2>
+      <p class="section-desc">We handle everything — from understanding your needs, to completing paperwork, to ensuring your policy is active and you understand every detail.</p>
+    </div>
+    <div class="steps-row">
+      <div class="step"><div class="step-num">1</div><div class="step-title">Book a Free Consultation</div><div class="step-desc">Online or in-person. Zero pressure, zero cost. We listen first.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-title">Financial Needs Analysis</div><div class="step-desc">We assess your income, goals, budget, and existing coverage to find your coverage gap.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-title">Personalized Proposal</div><div class="step-desc">We present the best AIA plan options with full cost breakdown and benefit illustration.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-title">Complete Application</div><div class="step-desc">Fill out the form, submit health declaration, and pay your first premium. Most plans approve in 1–5 days.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-title">You're Protected! 🎉</div><div class="step-desc">Receive your policy contract. We stay with you for the life of your plan — annual reviews included.</div></div>
+    </div>
+    <div style="text-align:center;margin-top:50px;">
+      <button class="btn-primary" onclick="openModal('')" style="font-size:16px;padding:16px 36px;">Book Your Free Consultation Today</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TESTIMONIALS ===== -->
+<div id="testimonials" style="background:var(--red-light);padding:70px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 5%;">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-tag" style="display:inline-block;">Client Stories</div>
+      <h2 class="section-title">Real Filipinos. Real Claims. Real Peace of Mind.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">When my husband was diagnosed with Stage 2 colon cancer, our AIA plan released the full benefit within a month. It covered his entire chemo. Hindi namin kailangang gumastos ng ipon. Thank you, Ate Lily!</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:var(--red);">MC</div>
+          <div><div class="testi-name">Maria Concepcion D.</div><div class="testi-loc">Cebu City, Cebu</div><div class="testi-plan">AIA Critical Protect 100</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">Nagtatrabaho ako sa Dubai tapos na-enroll yung buong pamilya ko sa AIA. Super smooth yung process — online lang lahat. Peace of mind kahit malayo sa Pilipinas.</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:var(--gold);">JR</div>
+          <div><div class="testi-name">Jerome R.</div><div class="testi-loc">OFW — Dubai, UAE</div><div class="testi-plan">AIA Money Tree</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">I was skeptical about insurance kasi maraming bad experience ang kilala ko. But after watching their YouTube channel thoroughly, I finally understood what I was getting. Sobrang sulit ng AIA Goals Protect ko!</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#7c3aed;">AC</div>
+          <div><div class="testi-name">Ana Cruz</div><div class="testi-loc">Quezon City, Metro Manila</div><div class="testi-plan">AIA Goals Protect</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">Nagka-stroke ang nanay ko last year. Dahil sa AIA Critical Illness nya, nakabayad kami ng hospital bills without touching our emergency fund. That's what real insurance should be.</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#0d9488;">RB</div>
+          <div><div class="testi-name">Renz B.</div><div class="testi-loc">Mandaue City, Cebu</div><div class="testi-plan">AIA Critical Protect 100</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">Bilang nurse, alam ko kung gaano kamahal ang ospital. Kaya may AIA Health Achieve na ako — at yung AIA Vitality rewards, bonus pa na rewards habang nag-eehersisyo ako!</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#2563eb;">MT</div>
+          <div><div class="testi-name">Maricel T., RN</div><div class="testi-loc">Davao City</div><div class="testi-plan">AIA Health Achieve</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">Nag-invest na rin ako sa AIA Money Tree — one-time payment lang at napapalago na yung pera ko habang protected. Mas maganda pa sa bangko! Salamat sa Infinite Wealth Financials team.</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#C9963A;">PL</div>
+          <div><div class="testi-name">Paolo L.</div><div class="testi-loc">Taguig City, Metro Manila</div><div class="testi-plan">AIA Money Tree</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div id="faq" style="background:white;padding:70px 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 5%;">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-tag" style="display:inline-block;">FAQ</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc" style="margin:0 auto;">The most common questions from our YouTube community — answered clearly and honestly.</p>
+    </div>
+    <div class="faq-grid" style="margin-top:40px;">
+      <div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What's the difference between AIA and PhilHealth? <span class="ico">+</span></div><div class="faq-a">PhilHealth is a government benefit that covers a portion of hospitalization costs. AIA insurance is a private plan that fills the gap — providing lump sum cash for critical illness, death benefits, and daily hospital income. They complement each other; having both is ideal.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I get insured even if I have a pre-existing condition? <span class="ico">+</span></div><div class="faq-a">It depends on the condition. AIA Philippines does underwriting on a case-by-case basis. Some conditions result in exclusions; others are accepted with loading. We'll be honest with you during the free consultation about your options.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long before I can file a critical illness claim? <span class="ico">+</span></div><div class="faq-a">Most AIA critical illness plans have a 90-day waiting period from the policy issue date. After that, a qualifying diagnosis triggers the claim process — typically resolved within 30 days of complete documents submission.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is VUL a good investment? What are the risks? <span class="ico">+</span></div><div class="faq-a">VUL gives you protection AND investment in one. The investment component is subject to market risk — your fund value can go up or down. It's best for long-term goals (10+ years). We teach you how to choose funds that match your risk appetite.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What if I can't pay my premium one month? <span class="ico">+</span></div><div class="faq-a">AIA plans have a grace period (typically 31 days). After that, your policy may use accumulated cash value (for VUL plans) to keep coverage active. We proactively reach out to help you avoid lapse — your protection is too important to lose.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can an OFW apply for AIA Philippines from abroad? <span class="ico">+</span></div><div class="faq-a">Yes! We can assist OFWs with their AIA policy enrollment remotely. Some products require Filipino citizenship or residency, but many are available for OFWs. The premium can be set up for auto-debit or paid by a family member locally.</div></div>
+      </div>
+      <div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How is AIA different from Sunlife or Manulife? <span class="ico">+</span></div><div class="faq-a">AIA Philippines (formerly Philam Life) is the market leader for over 70 years and has ₱257B+ in total assets. AIA Vitality is unique to AIA — no other Philippine insurer rewards you for being healthy. We're biased, but the data speaks for itself: AIA consistently pays claims and wins industry awards.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is the AIA Critical Protect 100 really not affected by market risk? <span class="ico">+</span></div><div class="faq-a">Correct. AIA Critical Protect 100 is a traditional whole life plan (not VUL), meaning your benefits are guaranteed and not subject to fund performance. It's one of the reasons it's our best-selling product — certainty matters when it's for your health.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What documents do I need to apply? <span class="ico">+</span></div><div class="faq-a">Generally: valid government ID, TIN, latest photo, and health declaration form. Higher coverage amounts may require medical exams. We'll guide you through exactly what's needed for your chosen plan — no surprises.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you charge a consultation fee? <span class="ico">+</span></div><div class="faq-a">Absolutely not. Our consultation, needs analysis, and presentation are 100% free. We are paid by AIA via commission only when you decide to proceed with a plan — and there's never any pressure to buy.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I access my AIA policy account? <span class="ico">+</span></div><div class="faq-a">AIA Philippines has an online portal at aia.com.ph where you can view policy details, account values, payment history, and claim status. We also assist all our clients in setting up their online access and the AIA Vitality app.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Are there joining opportunities with Infinite Wealth Financials? <span class="ico">+</span></div><div class="faq-a">Yes! We are actively looking for motivated individuals to join our team as AIA Licensed Life Planners. Benefits include HMO, travel incentives, monthly bonuses, and unlimited income potential. See our Careers section below!</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== YOUTUBE SECTION ===== -->
+<div id="videos">
+  <div class="yt-section">
+    <div class="yt-inner">
+      <div class="yt-header">
+        <div>
+          <h2>📺 Watch & Learn Free</h2>
+          <p style="margin-top:6px;">New videos every week — in Filipino, for Filipinos</p>
+        </div>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="yt-subscribe">
+          <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:white;"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.31 8.31 0 004.86 1.56V6.8a4.85 4.85 0 01-1.09-.11z"/></svg>
+          Subscribe Now
         </a>
       </div>
+      <div class="yt-grid">
+        <div class="yt-card" onclick="window.open('https://youtube.com/@infinitewealthfinancials','_blank')">
+          <div class="yt-thumb" style="background:linear-gradient(135deg,#1a0508,#C8102E);">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:48px;">❤️</div>
+            <div class="yt-play">▶</div>
+          </div>
+          <div class="yt-label"><div class="topic-tag">Critical Illness</div><div class="yt-title">AIA Critical Protect 100 Full Explainer — 100 Diseases, Coverage Until 100</div><div class="yt-meta">Infinite Wealth Financials</div></div>
+        </div>
+        <div class="yt-card" onclick="window.open('https://youtube.com/@infinitewealthfinancials','_blank')">
+          <div class="yt-thumb" style="background:linear-gradient(135deg,#0a1628,#2563eb);">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:48px;">📈</div>
+            <div class="yt-play">▶</div>
+          </div>
+          <div class="yt-label"><div class="topic-tag">VUL Insurance</div><div class="yt-title">VUL Insurance Explained in Tagalog — Pros, Cons & Who It's Really For</div><div class="yt-meta">Infinite Wealth Financials</div></div>
+        </div>
+        <div class="yt-card" onclick="window.open('https://youtube.com/@infinitewealthfinancials','_blank')">
+          <div class="yt-thumb" style="background:linear-gradient(135deg,#0a2810,#16a34a);">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:48px;">🏥</div>
+            <div class="yt-play">▶</div>
+          </div>
+          <div class="yt-label"><div class="topic-tag">HMO vs Insurance</div><div class="yt-title">HMO vs Life Insurance — Alin ang Kailangan Mo? Honest Comparison</div><div class="yt-meta">Infinite Wealth Financials</div></div>
+        </div>
+        <div class="yt-card" onclick="window.open('https://youtube.com/@infinitewealthfinancials','_blank')">
+          <div class="yt-thumb" style="background:linear-gradient(135deg,#1a0f00,#C9963A);">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:48px;">✈️</div>
+            <div class="yt-play">▶</div>
+          </div>
+          <div class="yt-label"><div class="topic-tag">OFW Finance</div><div class="yt-title">OFW Financial Planning — Paano Mag-Invest ng Insurance Kahit Nasa Abroad</div><div class="yt-meta">Infinite Wealth Financials</div></div>
+        </div>
+        <div class="yt-card" onclick="window.open('https://youtube.com/@infinitewealthfinancials','_blank')">
+          <div class="yt-thumb" style="background:linear-gradient(135deg,#0a0a28,#7c3aed);">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:48px;">🌅</div>
+            <div class="yt-play">▶</div>
+          </div>
+          <div class="yt-label"><div class="topic-tag">Retirement</div><div class="yt-title">Retirement Planning Philippines — Magkano Dapat ang Ipon Mo para sa Retirement?</div><div class="yt-meta">Infinite Wealth Financials</div></div>
+        </div>
+        <div class="yt-card" onclick="window.open('https://youtube.com/@infinitewealthfinancials','_blank')">
+          <div class="yt-thumb" style="background:linear-gradient(135deg,#28001a,#f5576c);">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:48px;">💊</div>
+            <div class="yt-play">▶</div>
+          </div>
+          <div class="yt-label"><div class="topic-tag">AIA Vitality</div><div class="yt-title">AIA Vitality Rewards Program — Kumita Ka Habang Nag-eehersisyo!</div><div class="yt-meta">Infinite Wealth Financials</div></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="yt-subscribe" style="font-size:15px;padding:13px 28px;">▶ View All Videos on YouTube</a>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="tab-content" id="tab-coverage">
-    <table class="coverage-table">
-      <thead>
-        <tr>
-          <th>Benefit</th>
-          <th>Details</th>
-          <th>Included</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Critical Illness Lump Sum</td><td>Cash payout upon diagnosis of covered CI</td><td>✅ Up to Sum Assured</td></tr>
-        <tr><td>Death Benefit</td><td>Lump sum to beneficiaries upon death</td><td>✅ 100% of SA</td></tr>
-        <tr><td>Hospital Daily Benefit</td><td>Per day of hospital confinement</td><td>✅ Included</td></tr>
-        <tr><td>ICU Benefit</td><td>Enhanced daily benefit for ICU admission</td><td>✅ 2x Daily Rate</td></tr>
-        <tr><td>Surgical Benefit</td><td>Covers major and minor surgeries</td><td>✅ Included</td></tr>
-        <tr><td>100 Critical Illnesses</td><td>Cancer, heart, stroke, kidney & more</td><td>✅ Full List</td></tr>
-        <tr><td>AIA Vitality Rewards</td><td>Wellness program with premium discounts</td><td>✅ 15% Discount</td></tr>
-        <tr><td>Coverage Period</td><td>From entry to age 100</td><td>✅ Lifetime</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="tab-content" id="tab-eligibility">
-    <div class="desc-grid">
+<!-- ===== CAREERS ===== -->
+<div id="careers">
+  <div class="recruit-section">
+    <div class="recruit-inner">
+      <div class="recruit-text">
+        <div style="display:inline-block;background:rgba(255,255,255,.15);color:white;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:12px;margin-bottom:16px;">Now Hiring</div>
+        <h2>Join Our Team as an AIA Licensed Life Planner</h2>
+        <p>Be your own boss while helping Filipino families achieve financial security. Infinite Wealth Financials is looking for motivated, values-driven individuals to grow with us as AIA Life Planners.</p>
+        <p>No insurance experience required. We provide complete training, licensing support, and a proven system that lets you build a rewarding career or side income — on your own schedule.</p>
+        <button class="btn-secondary" onclick="openModal('Career as AIA Life Planner')" style="border-color:rgba(255,255,255,.5);color:white;margin-top:8px;">Apply Now — It's Free</button>
+      </div>
       <div>
-        <h3>Who Can Apply?</h3>
-        <p><strong>Entry Age:</strong> 0 – 60 years old</p>
-        <p><strong>Coverage Period:</strong> Up to age 100</p>
-        <p><strong>Citizenship:</strong> Filipino citizens and eligible residents in the Philippines</p>
-        <p><strong>Medical Exam:</strong> May be required depending on coverage amount and age</p>
-        <p><strong>Pre-existing Conditions:</strong> Subject to underwriting — we'll guide you through the process honestly and transparently.</p>
-      </div>
-      <div>
-        <h3>How to Apply</h3>
-        <p><strong>Step 1:</strong> Book a free consultation with our licensed AIA Life Planner</p>
-        <p><strong>Step 2:</strong> We assess your needs and present a personalized plan</p>
-        <p><strong>Step 3:</strong> Complete the application form & health declaration</p>
-        <p><strong>Step 4:</strong> Submit requirements & process payment</p>
-        <p><strong>Step 5:</strong> Receive your policy contract — you're protected! 🎉</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY AIA -->
-<section class="why-section">
-  <h2>Trusted by Over 1.2 Million Filipinos</h2>
-  <p>AIA Philippines — formerly Philam Life — has been protecting Filipino families for over 70 years.</p>
-
-  <div class="stats-grid">
-    <div class="stat-card">
-      <span class="stat-num">₱257B+</span>
-      <div class="stat-label">Total Assets</div>
-    </div>
-    <div class="stat-card">
-      <span class="stat-num">1.2M+</span>
-      <div class="stat-label">Individual Policyholders</div>
-    </div>
-    <div class="stat-card">
-      <span class="stat-num">100+</span>
-      <div class="stat-label">Years in Asia</div>
-    </div>
-    <div class="stat-card">
-      <span class="stat-num">18</span>
-      <div class="stat-label">Markets in Asia-Pacific</div>
-    </div>
-  </div>
-</section>
-
-<!-- OTHER PRODUCTS -->
-<section class="products-section" id="products">
-  <h2>More AIA Products We Offer</h2>
-  <p>Explore the full range of AIA Philippines insurance solutions — each tailored for your unique life goals.</p>
-
-  <div class="products-grid">
-    <div class="product-card">
-      <div class="card-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">💼</div>
-      <div class="card-body">
-        <span class="card-tag">VUL / Investment</span>
-        <div class="card-title">AIA Goals Protect</div>
-        <div class="card-desc">A flexible variable universal life plan that grows your savings through investments while protecting your loved ones.</div>
-        <div class="card-price">From ₱2,000/month</div>
-        <button class="card-btn" onclick="showModal()">Inquire Now</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="card-img" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">🏥</div>
-      <div class="card-body">
-        <span class="card-tag">Health</span>
-        <div class="card-title">AIA Health Achieve</div>
-        <div class="card-desc">Life and health insurance for your prime working years — covering 56 major illnesses plus hospitalization benefits.</div>
-        <div class="card-price">From ₱1,800/month</div>
-        <button class="card-btn" onclick="showModal()">Inquire Now</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="card-img" style="background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);">🎓</div>
-      <div class="card-body">
-        <span class="card-tag">Education</span>
-        <div class="card-title">AIA Education Plan</div>
-        <div class="card-desc">Start saving for your child's college education today with a plan that grows with their dreams.</div>
-        <div class="card-price">From ₱1,200/month</div>
-        <button class="card-btn" onclick="showModal()">Inquire Now</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="card-img" style="background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);">🌅</div>
-      <div class="card-body">
-        <span class="card-tag">Retirement</span>
-        <div class="card-title">AIA Retirement Plan</div>
-        <div class="card-desc">Ensure a comfortable and financially secure retirement with guaranteed income and investment options.</div>
-        <div class="card-price">From ₱3,000/month</div>
-        <button class="card-btn" onclick="showModal()">Inquire Now</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="card-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🛡️</div>
-      <div class="card-body">
-        <span class="card-tag">All-in-One</span>
-        <div class="card-title">AIA All-In-One</div>
-        <div class="card-desc">Affordable whole life protection covering death, accident, disability, and critical illness — all in a single affordable plan.</div>
-        <div class="card-price">From ₱800/month</div>
-        <button class="card-btn" onclick="showModal()">Inquire Now</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="card-img" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">👨‍👩‍👧‍👦</div>
-      <div class="card-body">
-        <span class="card-tag">Group / Corporate</span>
-        <div class="card-title">AIA Corporate Plans</div>
-        <div class="card-desc">Protect your entire workforce with comprehensive group life, health, and medical insurance solutions.</div>
-        <div class="card-price">Custom Pricing</div>
-        <button class="card-btn" onclick="showModal()">Inquire Now</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <h2>Real Stories from Real Filipinos</h2>
-  <div class="testimonials-grid">
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"When my husband was diagnosed with Stage 2 colon cancer, our AIA Critical Protect plan paid out within weeks. It covered his entire chemotherapy. Hindi namin kailangang gumastos ng ipon namin."</p>
-      <div class="testi-author">
-        <div class="testi-avatar" style="background: var(--red);">MC</div>
-        <div>
-          <div class="testi-name">Maria Concepcion</div>
-          <div class="testi-loc">Cebu City, Cebu</div>
+        <div class="recruit-benefits">
+          <div class="rb-item"><span>💰</span><div><strong>Unlimited Income Potential</strong><small>Commission-based + monthly bonuses + renewal income</small></div></div>
+          <div class="rb-item"><span>🏥</span><div><strong>HMO Coverage for You</strong><small>Health insurance provided upon qualifying</small></div></div>
+          <div class="rb-item"><span>✈️</span><div><strong>Travel Incentives</strong><small>Local and international travel rewards for top performers</small></div></div>
+          <div class="rb-item"><span>📅</span><div><strong>Flexible Schedule</strong><small>Full-time, part-time, or freelance — you choose</small></div></div>
+          <div class="rb-item"><span>📚</span><div><strong>Full Training Provided</strong><small>We train you on products, sales, and licensing exam prep</small></div></div>
+          <div class="rb-item"><span>🤝</span><div><strong>Team Support System</strong><small>Join a community of like-minded Filipino financial advisors</small></div></div>
         </div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Nagtatrabaho ako abroad at sobrang peace of mind ko knowing na covered ang pamilya ko sa Pilipinas. The life planner from Infinite Wealth Financials explained everything clearly."</p>
-      <div class="testi-author">
-        <div class="testi-avatar" style="background: var(--gold);">JR</div>
-        <div>
-          <div class="testi-name">Jerome Reyes</div>
-          <div class="testi-loc">OFW – Dubai, UAE</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"I was hesitant about insurance before watching their YouTube channel. After seeing the actual computations and real examples, I understood exactly what I was getting. Sulit na sulit!"</p>
-      <div class="testi-author">
-        <div class="testi-avatar" style="background: #764ba2;">AC</div>
-        <div>
-          <div class="testi-name">Ana Cruz</div>
-          <div class="testi-loc">Quezon City, Metro Manila</div>
+        <div style="margin-top:16px;background:rgba(255,255,255,.1);border-radius:12px;padding:16px 18px;">
+          <div style="font-size:13px;color:rgba(255,255,255,.55);">To apply, email your resume to</div>
+          <div style="font-size:15px;font-weight:700;color:white;margin-top:4px;">car88rs@gmail.com</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:2px;">or call/text <strong style="color:white;">0930 483 8222</strong></div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- FAQ -->
-<section class="faq-section" id="faq">
-  <h2>Frequently Asked Questions</h2>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">Is AIA Critical Protect 100 different from HMO? <span>+</span></div>
-    <div class="faq-a">Yes! HMO plans are annual and don't build cash value. AIA Critical Protect 100 is a lifetime insurance plan that pays you a lump sum cash benefit upon diagnosis of a critical illness — which you can use however you need, not just for hospital bills.</div>
+<!-- ===== CONTACT ===== -->
+<div id="contact" style="background:var(--light);padding:70px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 5%;">
+    <div class="contact-grid">
+      <div class="contact-form">
+        <h3>Get a Free Quote Today</h3>
+        <p>Tell us about yourself and we'll match you with the perfect AIA plan. A licensed Life Planner will reach out within 24 hours.</p>
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" placeholder="Juan"></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" placeholder="dela Cruz"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Mobile Number *</label><input type="tel" placeholder="0917 XXX XXXX"></div>
+          <div class="form-group"><label>Age *</label><input type="number" placeholder="30" min="1" max="70"></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="juan@email.com"></div>
+        <div class="form-group">
+          <label>I'm Interested In *</label>
+          <select>
+            <option value="">Select a product or topic...</option>
+            <option>AIA Critical Protect 100</option>
+            <option>AIA Goals Protect (VUL)</option>
+            <option>AIA Health Achieve</option>
+            <option>AIA All-In-One</option>
+            <option>AIA Money Tree (Single Pay)</option>
+            <option>AIA Education Plan</option>
+            <option>AIA Retirement Plan</option>
+            <option>AIA Vitality Rewards</option>
+            <option>Joining as AIA Life Planner</option>
+            <option>General Financial Planning</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Monthly Budget</label>
+          <select>
+            <option>Select your budget range</option>
+            <option>Below ₱1,000/month</option>
+            <option>₱1,000 – ₱2,000/month</option>
+            <option>₱2,000 – ₱5,000/month</option>
+            <option>₱5,000 – ₱10,000/month</option>
+            <option>Above ₱10,000/month</option>
+            <option>One-time payment available</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Any Questions or Notes</label><textarea placeholder="E.g. I have a pre-existing condition... / I want to cover my child from birth..."></textarea></div>
+        <button class="form-submit" onclick="submitInquiry()">Send Inquiry — Free Consultation →</button>
+        <p style="font-size:11px;color:#aaa;text-align:center;margin-top:10px;">We never share your information. No spam. 100% confidential.</p>
+      </div>
+      <div class="contact-info">
+        <h3>We're Here to Help</h3>
+        <p>Whether you're a first-time insurance buyer or reviewing your existing coverage, our licensed AIA Life Planners offer a no-pressure, fully educational consultation experience.</p>
+        <div class="cinfo-items">
+          <div class="cinfo-item"><div class="cinfo-icon">📞</div><div><div class="cinfo-label">Phone / Viber / WhatsApp</div><div class="cinfo-val">0930 483 8222</div></div></div>
+          <div class="cinfo-item"><div class="cinfo-icon">✉️</div><div><div class="cinfo-label">Email</div><div class="cinfo-val">car88rs@gmail.com</div></div></div>
+          <div class="cinfo-item"><div class="cinfo-icon">📍</div><div><div class="cinfo-label">Based In</div><div class="cinfo-val">Cebu City, Philippines (servicing nationwide)</div></div></div>
+          <div class="cinfo-item"><div class="cinfo-icon">⏰</div><div><div class="cinfo-label">Available</div><div class="cinfo-val">Mon–Sat, 9AM–8PM</div></div></div>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:12px;">Follow & Subscribe</div>
+          <div class="social-row">
+            <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="social-btn" style="background:#FF0000;color:white;" title="YouTube">▶</a>
+            <a href="https://www.facebook.com/InfiniteWealthFinancials/" target="_blank" class="social-btn" style="background:#1877F2;color:white;" title="Facebook">f</a>
+            <a href="https://wa.me/639304838222" class="social-btn" style="background:#25D366;color:white;" title="WhatsApp">💬</a>
+          </div>
+        </div>
+        <div style="background:var(--dark);border-radius:16px;padding:24px;">
+          <div style="font-size:13px;font-weight:700;color:white;margin-bottom:8px;">📺 Watch First, Decide Later</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px;">Browse our YouTube channel first — we explain every AIA product in plain Filipino so you can make an informed decision before even talking to us.</div>
+          <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" style="display:inline-block;background:#FF0000;color:white;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;">▶ Open YouTube Channel</a>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">Can I apply even if I have a pre-existing condition? <span>+</span></div>
-    <div class="faq-a">It depends on the condition. Our life planners will walk you through the underwriting process honestly. Some conditions may result in exclusions, while others may still qualify for coverage. Book a free consultation and we'll assess your situation personally.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">How long until I can claim benefits? <span>+</span></div>
-    <div class="faq-a">A waiting period typically applies for critical illness claims (usually 90 days from policy issuance). Once the waiting period is complete and a qualifying diagnosis is made, claims are processed promptly. AIA Philippines has a strong track record of honoring claims.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">What happens if I stop paying premiums? <span>+</span></div>
-    <div class="faq-a">AIA plans typically have a grace period. If premiums lapse, the policy may use accumulated cash value (for applicable plans) or become reduced paid-up. Our team will explain all options to make sure your coverage stays intact.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">How do I get started? <span>+</span></div>
-    <div class="faq-a">Simply click "Book a Free Consultation" or message us via the WhatsApp button below. You can also watch our YouTube channel @infinitewealthfinancials for educational content before we chat!</div>
-  </div>
-</section>
-
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="brand-name">Infinite Wealth Financials</div>
-      <p>Your trusted, licensed AIA Life Planner partner in the Philippines. We educate before we sell — watch our YouTube channel for honest, in-depth insurance breakdowns.</p>
-      <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" class="yt-link">▶ Watch on YouTube</a>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Infinite Wealth Financials</div>
+        <div class="footer-brand-sub">Authorized AIA Life Planner · Philippines</div>
+        <p>Your trusted partner in AIA Philippines insurance — educating before selling, and supporting clients for life. Based in Cebu City, serving the entire Philippines.</p>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#FF0000;color:white;text-decoration:none;padding:9px 16px;border-radius:8px;font-size:12.5px;font-weight:700;">▶ YouTube Channel</a>
+      </div>
+      <div class="footer-col">
+        <h4>AIA Products</h4>
+        <a href="#" onclick="openModal('AIA Critical Protect 100')">Critical Protect 100</a>
+        <a href="#" onclick="openModal('AIA Health Achieve')">Health Achieve</a>
+        <a href="#" onclick="openModal('AIA Goals Protect')">Goals Protect (VUL)</a>
+        <a href="#" onclick="openModal('AIA All-In-One')">All-In-One Plan</a>
+        <a href="#" onclick="openModal('AIA Money Tree')">Money Tree</a>
+        <a href="#" onclick="openModal('AIA Education Plan')">Education Plan</a>
+        <a href="#" onclick="openModal('AIA Future Builder')">Future Builder</a>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <a href="#learn">What is VUL?</a>
+        <a href="#compare">HMO vs Life Insurance</a>
+        <a href="#learn">OFW Financial Tips</a>
+        <a href="#learn">Retirement Planning</a>
+        <a href="#learn">Education Savings</a>
+        <a href="#vitality">AIA Vitality Guide</a>
+        <a href="#learn">How to File a Claim</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="tel:+639304838222">📞 0930 483 8222</a>
+        <a href="mailto:car88rs@gmail.com">✉️ car88rs@gmail.com</a>
+        <a href="https://www.facebook.com/InfiniteWealthFinancials/" target="_blank">📘 Facebook Page</a>
+        <a href="https://youtube.com/@infinitewealthfinancials" target="_blank">▶ YouTube Channel</a>
+        <a href="https://wa.me/639304838222">💬 WhatsApp Us</a>
+        <a href="#careers">🏢 Join Our Team</a>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>AIA Products</h4>
-      <a href="#">Critical Protect 100</a>
-      <a href="#">Health Achieve</a>
-      <a href="#">Goals Protect (VUL)</a>
-      <a href="#">All-In-One Plan</a>
-      <a href="#">Education Plan</a>
-      <a href="#">Retirement Plan</a>
+    <div class="footer-bottom">
+      <span>© 2025 Infinite Wealth Financials. Licensed AIA Philippines Life Planner.</span>
+      <span style="color:rgba(255,255,255,.3);">AIA Philippines Life and General Insurance Company, Inc.</span>
     </div>
-    <div class="footer-col">
-      <h4>Learn More</h4>
-      <a href="#">What is VUL?</a>
-      <a href="#">HMO vs Life Insurance</a>
-      <a href="#">How to Claim</a>
-      <a href="#">AIA Vitality Guide</a>
-      <a href="#">YouTube Channel</a>
-    </div>
-    <div class="footer-col" id="contact">
-      <h4>Contact Us</h4>
-      <a href="#">📞 +63 XXX XXX XXXX</a>
-      <a href="#">✉️ info@infinitewealthfinancials.ph</a>
-      <a href="#">📍 Cebu City, Philippines</a>
-      <a href="#">Facebook Page</a>
-      <a href="https://youtube.com/@infinitewealthfinancials" target="_blank">YouTube Channel</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Infinite Wealth Financials. Authorized AIA Life Planner, Philippines. Licensed by the Insurance Commission.</span>
-    <span>AIA Philippines Life and General Insurance Company, Inc.</span>
+    <div class="footer-legal">Disclaimer: Infinite Wealth Financials is an authorized AIA Philippines Life Planner. All product information is for illustrative purposes. Actual terms, conditions, and benefits are found in the policy contract. Premium amounts shown are starting estimates and vary by age, coverage amount, and health status. Insurance products are regulated by the Insurance Commission of the Philippines. Please consult with a licensed Life Planner for personalized advice.</div>
   </div>
 </footer>
 
 <!-- MODAL -->
-<div id="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center;">
-  <div style="background:white; border-radius:20px; padding:40px; max-width:460px; width:90%; position:relative; animation: slideUp 0.3s ease;">
-    <button onclick="closeModal()" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:24px; cursor:pointer; color:#999;">×</button>
-    <h2 style="font-family:'Playfair Display',serif; font-size:28px; margin-bottom:8px;">Book a Free Consultation</h2>
-    <p style="color:#666; font-size:14px; margin-bottom:24px;">Fill in your details and an AIA Life Planner will reach out within 24 hours.</p>
-    <div style="display:flex; flex-direction:column; gap:12px;">
-      <input type="text" placeholder="Full Name *" style="padding:12px 16px; border:2px solid #e0d8cc; border-radius:10px; font-size:14px; font-family:'DM Sans',sans-serif; outline:none;">
-      <input type="tel" placeholder="Mobile Number *" style="padding:12px 16px; border:2px solid #e0d8cc; border-radius:10px; font-size:14px; font-family:'DM Sans',sans-serif; outline:none;">
-      <input type="email" placeholder="Email Address" style="padding:12px 16px; border:2px solid #e0d8cc; border-radius:10px; font-size:14px; font-family:'DM Sans',sans-serif; outline:none;">
-      <select style="padding:12px 16px; border:2px solid #e0d8cc; border-radius:10px; font-size:14px; font-family:'DM Sans',sans-serif; outline:none; background:white;">
-        <option>I'm interested in... *</option>
-        <option>AIA Critical Protect 100</option>
-        <option>AIA Health Achieve</option>
-        <option>AIA Goals Protect (VUL)</option>
-        <option>AIA All-In-One</option>
-        <option>AIA Education Plan</option>
-        <option>General Financial Planning</option>
-      </select>
-      <button onclick="submitForm()" style="background:var(--red); color:white; border:none; padding:14px; border-radius:10px; font-size:15px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; margin-top:4px;">Submit & Get a Free Quote →</button>
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h2>Book a Free Consultation</h2>
+    <p>Interested in <strong id="modalProduct">AIA Insurance</strong>? Fill in your details and we'll reach out within 24 hours — no pressure, ever.</p>
+    <div class="form-row" style="margin-bottom:0;">
+      <div class="form-group"><label>Full Name *</label><input type="text" placeholder="Juan dela Cruz"></div>
+      <div class="form-group"><label>Mobile *</label><input type="tel" placeholder="0917 XXX XXXX"></div>
     </div>
-    <p style="font-size:11px; color:#999; text-align:center; margin-top:12px;">We never spam. Your information is kept private.</p>
+    <div class="form-group"><label>Interested In</label><select id="modalSelect"><option>AIA Critical Protect 100</option><option>AIA Goals Protect (VUL)</option><option>AIA Health Achieve</option><option>AIA All-In-One</option><option>AIA Money Tree</option><option>AIA Education Plan</option><option>Join as Life Planner</option><option>General Consultation</option></select></div>
+    <button class="form-submit" onclick="submitModal()" style="margin-top:4px;">Send Inquiry →</button>
   </div>
 </div>
 
 <!-- WhatsApp FAB -->
-<a href="https://wa.me/63XXXXXXXXXX" class="floating-wa" target="_blank" title="Chat on WhatsApp">
+<a href="https://wa.me/639304838222" class="floating-wa" target="_blank" title="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<style>
-@keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-</style>
-
 <script>
-function selectPlan(el) {
-  document.querySelectorAll('.plan-option').forEach(p => p.classList.remove('selected'));
-  el.classList.add('selected');
+function toggleMenu(){const m=document.getElementById('mobileMenu');m.style.display=m.style.display==='none'?'block':'none';}
+function scrollTo(id,btn){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.snav-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+function toggleFaq(el){el.parentElement.classList.toggle('open');}
+function openModal(product){
+  document.getElementById('modalProduct').textContent=product||'AIA Insurance';
+  const sel=document.getElementById('modalSelect');
+  for(let i=0;i<sel.options.length;i++){if(sel.options[i].text.toLowerCase().includes(product.toLowerCase().split(' ')[1]||'')){sel.selectedIndex=i;break;}}
+  document.getElementById('modal').classList.add('show');
+  document.body.style.overflow='hidden';
 }
+function closeModal(){document.getElementById('modal').classList.remove('show');document.body.style.overflow='';}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+function submitModal(){alert('✅ Inquiry sent successfully!\n\nOur licensed AIA Life Planner will contact you within 24 hours.\n\nYou can also reach us directly:\n📱 0930 483 8222\n✉️ car88rs@gmail.com\n▶ youtube.com/@infinitewealthfinancials');closeModal();}
+function submitInquiry(){alert('✅ Your inquiry has been submitted!\n\nWe\'ll reach out within 24 hours. In the meantime, you can subscribe to our YouTube channel for free insurance tips: youtube.com/@infinitewealthfinancials');}
 
-function selectPill(el) {
-  document.querySelectorAll('.pill').forEach(p => p.classList.remove('selected'));
-  el.classList.add('selected');
-}
-
-function changeQty(delta) {
-  const input = document.getElementById('qty');
-  let val = parseInt(input.value) + delta;
-  if (val < 1) val = 1;
-  if (val > 10) val = 10;
-  input.value = val;
-}
-
-function switchTab(id, btn) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  btn.classList.add('active');
-}
-
-function toggleFaq(el) {
-  el.parentElement.classList.toggle('open');
-}
-
-function showModal() {
-  const m = document.getElementById('modal');
-  m.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  const m = document.getElementById('modal');
-  m.style.display = 'none';
-  document.body.style.overflow = '';
-}
-
-function submitForm() {
-  alert('Thank you! An AIA Life Planner will contact you within 24 hours. 🎉\n\nYou can also message us on WhatsApp or subscribe to our YouTube channel @infinitewealthfinancials for more information.');
-  closeModal();
-}
-
-document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
-
-document.querySelectorAll('.thumb').forEach((t, i) => {
-  t.addEventListener('click', () => {
-    document.querySelectorAll('.thumb').forEach(th => th.classList.remove('active'));
-    t.classList.add('active');
-  });
-});
+// Intersection observer for section nav
+const sections=['products','vitality','compare','learn','who','howto','testimonials','faq','videos','careers'];
+const snavBtns=document.querySelectorAll('.snav-btn');
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const idx=sections.indexOf(e.target.id);if(idx>=0){snavBtns.forEach(b=>b.classList.remove('active'));if(snavBtns[idx])snavBtns[idx].classList.add('active');}}});},{threshold:.3,rootMargin:'-80px 0px -40% 0px'});
+sections.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el);});
 </script>
 </body>
 </html>
